@@ -51,15 +51,28 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
+     // login→registerへ推移
     public function registerView()
     {
         $subjects = Subjects::all();
         return view('auth.register.register', compact('subjects'));
     }
 
+
     // 新規登録
     public function registerPost(Request $request)
     {
+        // バリデーション
+        $validator = Validator::make($request->all(), [
+            'over_name' => 'required|string|max:60',
+            'under_name' => 'required|string|max:60',
+            'over_name_kana' => 'required|string|max:60',
+            'under_name_kana' => 'required|string|max:60',
+            'mail_address' => 'required|string|max:255|unique:users',
+            'password' => 'required|string|max:191|confirmed|confirmed',
+        ]);
+
         DB::beginTransaction();
         try{
             $old_year = $request->old_year;
@@ -68,6 +81,8 @@ class RegisterController extends Controller
             $data = $old_year . '-' . $old_month . '-' . $old_day;
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
+
+            $validator->validate(); //バリデーションを適用
 
             $user_get = User::create([
                 'over_name' => $request->over_name,

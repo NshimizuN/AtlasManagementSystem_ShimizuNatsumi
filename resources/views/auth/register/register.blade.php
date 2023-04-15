@@ -13,8 +13,16 @@
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
+
+
   <!-- 新規登録 -->
   <form action="{{ route('registerPost') }}" method="POST">
+
+<!-- バリデーション -->
+@foreach ($errors->all() as $error)
+<li>{{$error}}</li>
+@endforeach
+
     <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
       <div class="w-25 vh-75 border p-3">
         <div class="register_form">
