@@ -17,6 +17,6 @@ class Subjects extends Model
 
     // リレーションの定義
     public function users(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\User');
     }
 }
