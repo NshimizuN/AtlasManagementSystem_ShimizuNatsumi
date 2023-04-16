@@ -19,9 +19,9 @@
   <form action="{{ route('registerPost') }}" method="POST">
 
 <!-- バリデーション -->
-<!-- @foreach ($errors->all() as $error)
+@foreach ($errors->all() as $error)
 <li>{{$error}}</li>
-@endforeach -->
+@endforeach
 
     <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
       <div class="w-25 vh-75 border p-3">
