@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 use App\Models\Users\Subjects;
+use App\Http\Requests\UserRequest;
 
 class RegisterController extends Controller
 {
@@ -61,28 +61,26 @@ class RegisterController extends Controller
 
 
     // 新規登録
-    public function registerPost(Request $request)
+    public function registerPost(UserRequest $request)
     {
-        // バリデーション
-        $validator = Validator::make($request->all(), [
-            'over_name' => 'required|string|max:60',
-            'under_name' => 'required|string|max:60',
-            'over_name_kana' => 'required|string|max:60',
-            'under_name_kana' => 'required|string|max:60',
-            'mail_address' => 'required|string|max:255|unique:users',
-            'password' => 'required|string|max:191|confirmed|confirmed',
-        ]);
+        //                // バリデーション
+        // $validator = Validator::make($request->all(), [
+        //     'over_name' => 'required|string|max:60',
+        //     'under_name' => 'required|string|max:60',
+        //     'over_name_kana' => 'required|string|max:60',
+        //     'under_name_kana' => 'required|string|max:60',
+        //     'mail_address' => 'required|string|max:255|unique:users',
+        //     'password' => 'required|string|max:191|confirmed|confirmed',
+        // ]);
 
         DB::beginTransaction();
-        try{
+        // try{
             $old_year = $request->old_year;
             $old_month = $request->old_month;
             $old_day = $request->old_day;
             $data = $old_year . '-' . $old_month . '-' . $old_day;
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
-
-            $validator->validate(); //バリデーションを適用
 
             $user_get = User::create([
                 'over_name' => $request->over_name,
@@ -95,13 +93,15 @@ class RegisterController extends Controller
                 'role' => $request->role,
                 'password' => bcrypt($request->password)
             ]);
+            // $validator->validate(); //バリデーションを適用
+
             $user = User::findOrFail($user_get->id);
             $user->subjects()->attach($subjects);
             DB::commit();
             return view('auth.login.login');
-        }catch(\Exception $e){
-            DB::rollback();
-            return redirect()->route('loginView');
-        }
+        // }catch(\Exception $e){
+        //     DB::rollback();
+        //     return redirect()->route('loginView');
+        // }
     }
 }
