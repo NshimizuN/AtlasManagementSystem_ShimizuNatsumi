@@ -25,6 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+    //生徒以外は閲覧できる
+        Gate::define('read', function ($user) {
+		return ($user->role !== 4);
+	});
     }
 }

@@ -63,16 +63,6 @@ class RegisterController extends Controller
     // 新規登録
     public function registerPost(UserRequest $request)
     {
-        //                // バリデーション
-        // $validator = Validator::make($request->all(), [
-        //     'over_name' => 'required|string|max:60',
-        //     'under_name' => 'required|string|max:60',
-        //     'over_name_kana' => 'required|string|max:60',
-        //     'under_name_kana' => 'required|string|max:60',
-        //     'mail_address' => 'required|string|max:255|unique:users',
-        //     'password' => 'required|string|max:191|confirmed|confirmed',
-        // ]);
-
         DB::beginTransaction();
         // try{
             $old_year = $request->old_year;
