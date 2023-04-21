@@ -33,7 +33,8 @@ class UserRequest extends FormRequest
             'over_name_kana' => 'required|string|max:60',
             'under_name_kana' => 'required|string|max:60',
             'mail_address' => 'required|string|max:255|unique:users',
-            'password' => 'required|string|max:191|confirmed|confirmed',
+            'password' => 'required|string|max:191|confirmed',
+            'password_confirmation' => 'required|string|max:191',
         ];
     }
 
@@ -47,6 +48,7 @@ class UserRequest extends FormRequest
             'mail_address.max' => 'メールアドレスは255文字以下で入力してください。',
             'mail_address.unique:users' => 'すでに登録されているアドレスです。',
             'password.max' => 'パスワードは191文字以下で入力してください。',
+            'password.confirmed' => 'パスワードが異なります',
         ];
     }
 }
