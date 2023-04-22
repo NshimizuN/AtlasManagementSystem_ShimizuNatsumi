@@ -3,6 +3,8 @@
 namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Users\User;
+use App\Models\Posts\Post;
 
 class Like extends Model
 {
@@ -13,8 +15,14 @@ class Like extends Model
         'like_post_id'
     ];
 
+    //usersテーブルとリレーション
+        public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    //postsテーブルとリレーション
     public function post() {
-        return $this->belongsTo('App\Models\Post');
+        return $this->belongsTo('App\Models\Posts\Post');
     }
 
     public function likeCounts($post_id){

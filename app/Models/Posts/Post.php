@@ -3,6 +3,8 @@
 namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Users\User;
+use App\Models\Posts\Like;
 
 class Post extends Model
 {
@@ -15,6 +17,7 @@ class Post extends Model
         'post',
     ];
 
+    //usersテーブルとリレーション
     public function user(){
         return $this->belongsTo('App\Models\Users\User');
     }
@@ -30,5 +33,11 @@ class Post extends Model
     // コメント数
     public function commentCounts($post_id){
         return Post::with('postComments')->find($post_id)->postComments();
+    }
+
+    //likesテーブルのリレーション
+    public function likes()
+    {
+        return $this->hasMany('App\Models\Posts\Like');
     }
 }

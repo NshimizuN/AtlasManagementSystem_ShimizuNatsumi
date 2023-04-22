@@ -81,8 +81,8 @@ class RegisterController extends Controller
                 'sex' => $request->sex,
                 'birth_day' => $birth_day,
                 'role' => $request->role,
-                'password' => $request->password,
-                'password_confirmation' => $request->password,
+                'password' => bcrypt($request->password),
+                'password_confirmation' => $request->password_confirmation,
             ]);
             // $validator->validate(); //バリデーションを適用
 
