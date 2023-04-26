@@ -9,6 +9,9 @@
           </div>
 
           @if(Auth::user()->id == $post->user_id)
+                          @foreach ($errors->all() as $error)
+           <li>{{$error}}</li>
+           @endforeach
           <div>
             <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
             <a href="{{ route('post.delete', ['id' => $post->id]) }}" onclick="return confirm('削除してよろしいでしょうか？')">削除</a>
@@ -59,9 +62,6 @@
   <div class="modal__bg js-modal-close"></div>
   <div class="modal__content">
     <form action="{{ route('post.edit') }}" method="post">
-      @foreach ($errors->all() as $error)
-      <li>{{$error}}</li>
-      @endforeach
       <div class="w-100">
         <div class="modal-inner-title w-50 m-auto">
           <input type="text" name="post_title" placeholder="タイトル" class="w-100">
