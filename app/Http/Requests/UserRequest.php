@@ -33,9 +33,9 @@ class UserRequest extends FormRequest
             'over_name_kana' => 'required|string|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|max:30',
             'under_name_kana' => 'required|string|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|max:30',
             'mail_address' => 'required|email:filter,dns|max:100|unique:users',
-            'sex' => 'required',
+            'sex' =>  ["in:1,2,3"],
             'birth_day' => 'required|date|after:2000-01-01|before:today',
-            'role' => 'required',
+            'role' => ["in:1,2,3,4"],
             'password' => 'required|string|min:8|max:30|confirmed',
             'password_confirmation' => 'required|string|max:191',
         ];
