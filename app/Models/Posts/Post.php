@@ -22,6 +22,7 @@ class Post extends Model
         return $this->belongsTo('App\Models\Users\User');
     }
 
+    //コメントのリレーション
     public function postComments(){
         return $this->hasMany('App\Models\Posts\PostComment');
     }

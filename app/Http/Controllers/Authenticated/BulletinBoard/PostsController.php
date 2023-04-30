@@ -16,6 +16,7 @@ use Auth;
 
 class PostsController extends Controller
 {
+    //投稿を表示させる
     public function show(Request $request){
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::get();
@@ -49,6 +50,7 @@ class PostsController extends Controller
         return view('authenticated.bulletinboard.post_create', compact('main_categories'));
     }
 
+    //投稿の新規作成
     public function postCreate(PostFormRequest $request){
         DB::beginTransaction();
         $post = Post::create([
@@ -60,6 +62,7 @@ class PostsController extends Controller
         return redirect()->route('post.show');
     }
 
+    //投稿の編集
     public function postEdit(PostFormRequest $request){
         Post::where('id', $request->post_id)->update([
             'post_title' => $request->post_title,
@@ -68,6 +71,7 @@ class PostsController extends Controller
         return redirect()->route('post.detail', ['id' => $request->post_id]);
     }
 
+    //投稿の削除
     public function postDelete($id){
         Post::findOrFail($id)->delete();
         return redirect()->route('post.show');
@@ -77,6 +81,7 @@ class PostsController extends Controller
         return redirect()->route('post.input');
     }
 
+    //コメントの新規作成
     public function commentCreate(Request $request){
         PostComment::create([
             'post_id' => $request->post_id,
@@ -85,6 +90,7 @@ class PostsController extends Controller
         ]);
         return redirect()->route('post.detail', ['id' => $request->post_id]);
     }
+
 
     public function myBulletinBoard(){
         $posts = Auth::user()->posts()->get();
@@ -99,6 +105,7 @@ class PostsController extends Controller
         return view('authenticated.bulletinboard.post_like', compact('posts', 'like'));
     }
 
+    //いいねをつける
     public function postLike(Request $request){
         $user_id = Auth::id();
         $post_id = $request->post_id;
@@ -112,6 +119,7 @@ class PostsController extends Controller
         return response()->json();
     }
 
+    //いいねを止める
     public function postUnLike(Request $request){
         $user_id = Auth::id();
         $post_id = $request->post_id;
