@@ -54,6 +54,9 @@
         <input type="hidden" name="post_id" form="commentRequest" value="{{ $post->id }}">
         <input type="submit" class="btn btn-primary" form="commentRequest" value="投稿">
         <form action="{{ route('comment.create') }}" method="post" id="commentRequest">{{ csrf_field() }}</form>
+        @error('comment')
+            <li>{{$message}}</li>
+            @enderror
       </div>
     </div>
   </div>

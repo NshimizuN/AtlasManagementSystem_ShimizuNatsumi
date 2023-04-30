@@ -25,7 +25,7 @@ class PostComment extends Model
         return User::where('id', $user_id)->first();
     }
 
-        public function commentCounts($post_id){
-        return $this->where('post_comment_id', $post_id)->get()->count();
-    }
+    //     public function commentCounts($post_id){
+    //     return $this->where('post_comment_id', $post_id)->get()->count();
+    // }
 }
