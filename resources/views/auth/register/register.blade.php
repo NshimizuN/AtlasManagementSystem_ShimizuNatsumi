@@ -28,18 +28,18 @@
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
               </div>
-           @error('over_name')
-            <li>{{$message}}</li>
-            @enderror
+              @error('over_name')
+              <li>{{$message}}</li>
+              @enderror
             </div>
             <div class="" style="width:140px">
               <label class=" d-block m-0" style="font-size:13px">名</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name" name="under_name">
               </div>
-            @error('under_name')
-            <li>{{$message}}</li>
-            @enderror
+              @error('under_name')
+              <li>{{$message}}</li>
+              @enderror
             </div>
           </div>
           <div class="d-flex mt-3" style="justify-content:space-between">
@@ -48,18 +48,18 @@
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name_kana" name="over_name_kana">
               </div>
-            @error('over_name_kana')
-            <li>{{$message}}</li>
-            @enderror
+              @error('over_name_kana')
+              <li>{{$message}}</li>
+              @enderror
             </div>
             <div class="" style="width:140px">
               <label class="d-block m-0" style="font-size:13px">メイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name_kana" name="under_name_kana">
               </div>
-            @error('under_name_kana')
-            <li>{{$message}}</li>
-            @enderror
+              @error('under_name_kana')
+              <li>{{$message}}</li>
+              @enderror
             </div>
           </div>
           <div class="mt-3">
@@ -162,7 +162,10 @@
             <option value="30">30</option>
             <option value="31">31</option>
           </select>
-          <label style="font-size:13px">月</label>
+          <label style="font-size:13px">日</label>
+           @error('birth_day_validation')
+            <li>{{$message}}</li>
+            @enderror
         </div>
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">役職</label>

@@ -24,6 +24,24 @@ class UserRequest extends FormRequest
      * @return array
      */
 
+     public function getValidatorInstance()
+    {
+        // プルダウンで選択された値(= 配列)を取得
+        $date = $this->input('birth_day', array()); //デフォルト値は空の配列
+
+        // 日付を作成(ex. 2020-1-20)
+        $date_validation = implode('-', $date);
+
+        // rules()に渡す値を追加でセット
+        //     これで、この場で作った変数にもバリデーションを設定できるようになる
+        $this->merge([
+            'birth_day_validation' => $date_validation,
+        ]);
+
+        return parent::getValidatorInstance();
+    }
+
+
      //バリデーションなどのルール
     public function rules()
     {
@@ -34,12 +52,13 @@ class UserRequest extends FormRequest
             'under_name_kana' => 'required|string|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|max:30',
             'mail_address' => 'required|email:filter,dns|max:100|unique:users',
             'sex' =>  ["in:1,2,3"],
-            'birth_day' => 'required|date|after:2000-01-01|before:today',
+            'birth_day_validation' => 'date',
             'role' => ["in:1,2,3,4"],
             'password' => 'required|string|min:8|max:30|confirmed',
             'password_confirmation' => 'required|string|max:191',
         ];
     }
+
 
     //バリデーション エラーメッセージ
         public function messages(){
@@ -65,9 +84,7 @@ class UserRequest extends FormRequest
 
             'sex.required' => '必須項目です。',
 
-            'birth_day.required' => '必須項目です。',
-            'birth_day.after:2000-01-01' => '2000年1月1日から今日までで選択してください。',
-            'birth_day.before:today' => '2000年1月1日から今日までで選択してください。',
+            'datetime_validation.date'  => '存在しない日付です。',
 
             'role.required' => '必須項目です。',
 
