@@ -79,6 +79,9 @@
           <label style="font-size:13px">女性</label>
           <input type="radio" name="sex" class="sex" value="3">
           <label style="font-size:13px">その他</label>
+          @error('sex')
+            <li>{{$message}}</li>
+            @enderror
         </div>
         <div class="mt-3">
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
@@ -186,6 +189,9 @@
             <label>{{ $subject->subject }}</label>
           </div>
           @endforeach
+          @error('role')
+            <li>{{$message}}</li>
+            @enderror
         </div>
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">パスワード</label>

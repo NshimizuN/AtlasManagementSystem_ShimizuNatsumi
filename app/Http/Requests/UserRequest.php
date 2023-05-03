@@ -52,7 +52,7 @@ class UserRequest extends FormRequest
             'under_name_kana' => 'required|string|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|max:30',
             'mail_address' => 'required|email:filter,dns|max:100|unique:users',
             'sex' =>  ["in:1,2,3"],
-            'birth_day_validation' => 'date',
+            'birth_day_validation' => 'required|date|before:now|after:2000-01-01',
             'role' => ["in:1,2,3,4"],
             'password' => 'required|string|min:8|max:30|confirmed',
             'password_confirmation' => 'required|string|max:191',
@@ -84,7 +84,10 @@ class UserRequest extends FormRequest
 
             'sex.required' => '必須項目です。',
 
-            'datetime_validation.date'  => '存在しない日付です。',
+            'birth_day_validation.required'  => '必須項目です。',
+            'birth_day_validation.date'  => '正しい値を入力してください。',
+            'birth_day_validation.before:now'  => '2000年1月1日〜今日までの日付を入力してください。',
+            'birth_day_validation.after:2000-01-01'  => '2000年1月1日〜今日までの日付を入力してください。',
 
             'role.required' => '必須項目です。',
 
