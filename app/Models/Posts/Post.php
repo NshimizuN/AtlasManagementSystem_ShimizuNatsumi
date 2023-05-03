@@ -32,7 +32,7 @@ class Post extends Model
     }
 
     // コメント数
-    public function commentCounts($posy_id){
+    public function commentCounts($post_id){
         return Post::with('postComments')->find($post_id)->postComments();
     }
 

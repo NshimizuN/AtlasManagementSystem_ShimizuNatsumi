@@ -25,7 +25,9 @@ class Like extends Model
         return $this->belongsTo('App\Models\Posts\Post');
     }
 
+    //いいね数のカウント
     public function likeCounts($post_id){
+        $post_id = $request->post_id;
         return $this->where('like_post_id', $post_id)->get()->count();
     }
 }
