@@ -39,6 +39,6 @@ class Post extends Model
     //likesテーブルのリレーション
     public function likes()
     {
-        return $this->hasMany('App\Models\Posts\Like');
+        return $this->hasMany('App\Models\Posts\Like','like_post_id');
     }
 }
