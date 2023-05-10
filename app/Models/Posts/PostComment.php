@@ -17,15 +17,13 @@ class PostComment extends Model
         'comment',
     ];
 
+    //Postテーブルのリレーション
     public function post(){
         return $this->belongsTo('App\Models\Posts\Post');
     }
 
+    //コメント数のカウント
     public function commentUser($user_id){
         return User::where('id', $user_id)->first();
     }
-
-    //     public function commentCounts($post_id){
-    //     return $this->where('post_comment_id', $post_id)->get()->count();
-    // }
 }

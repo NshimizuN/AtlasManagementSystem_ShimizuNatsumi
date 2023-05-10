@@ -3,6 +3,7 @@
 namespace App\Models\Categories;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Categories\SubCategory;
 
 class MainCategory extends Model
 {
@@ -12,8 +13,9 @@ class MainCategory extends Model
         'main_category'
     ];
 
+    //Sub Categoriesテーブルのリレーション
     public function subCategories(){
-        // リレーションの定義
+        return $this->hasMany('App\Models\Categories\SubCategory');
     }
 
 }

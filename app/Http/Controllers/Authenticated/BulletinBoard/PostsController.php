@@ -21,6 +21,7 @@ class PostsController extends Controller
     public function show(Request $request){
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::get();
+        $sub_categories = SubCategory::get();
         $like = new Like;
         $post_comment = new Post;
         if(!empty($request->keyword)){
@@ -86,6 +87,15 @@ class PostsController extends Controller
         return redirect()->route('post.input');
     }
 
+    //サブカテゴリーに単語を追加
+    public function subCategoryCreate(Request $request){
+        $sub_category = SubCategory::create([
+            'main_category_id' => $request->main_category_id,
+            'sub_category' => $request->sub_category,
+        ]);
+        return redirect()->route('post.show');
+    }
+
     //コメントの新規作成
     public function commentCreate(CommentRequest $request){
         PostComment::create([
@@ -103,6 +113,7 @@ class PostsController extends Controller
         return view('authenticated.bulletinboard.post_myself', compact('posts', 'like'));
     }
 
+    //いいねした投稿を抽出
     public function likeBulletinBoard(){
         $like_post_id = Like::with('users')->where('like_user_id', Auth::id())->get('like_post_id')->toArray();
         $posts = Post::with('user')->whereIn('id', $like_post_id)->get();
