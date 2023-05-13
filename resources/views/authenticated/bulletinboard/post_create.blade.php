@@ -17,7 +17,7 @@
     <!-- サブカテゴリー -->
     <div class="">
       <p class="mb-0">サブカテゴリー</p>
-      <select class="w-100" form="postCreate" name="post_category_id">
+      <select class="w-100" form="postCreate" name="sub_category">
         @foreach($sub_categories as $sub_category)
         <option label="{{ $sub_category->sub_category }}"></option>
         @endforeach
@@ -56,6 +56,9 @@
         <input type="text" class="w-100" name="main_category_name" form="mainCategoryCreate" method="post" value="{{old('main_category_name')}}">
         <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="mainCategoryCreate">
         <form action="{{ route('main.category.create') }}" method="post" id="mainCategoryCreate">{{ csrf_field() }}</form>
+        @error('main_category_name')
+            <li>{{$message}}</li>
+            @enderror
       </div>
       <!-- サブカテゴリー追加 -->
       <div class="">
@@ -69,6 +72,9 @@
        <input type="text" class="w-100" name="sub_category_name" form="subCategoryCreate" method="post" valie="{{old('sub_category_name')}}">
        <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="subCategoryCreate">
        <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryCreate">{{ csrf_field() }}</form>
+        @error('sub_category_name')
+            <li>{{$message}}</li>
+            @enderror
      </div>
    </div>
   </div>

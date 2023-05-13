@@ -13,6 +13,8 @@ use App\Models\Posts\Like;
 use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use App\Http\Requests\BulletinBoard\CommentRequest;
+use App\Http\Requests\BulletinBoard\MainCategoryRequest;
+use App\Http\Requests\BulletinBoard\SubCategoryRequest;
 use Auth;
 
 class PostsController extends Controller
