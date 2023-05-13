@@ -51,8 +51,8 @@ class PostsController extends Controller
     //メインカテゴリーを投稿フォームに渡す
     public function postInput(){
         $main_categories = MainCategory::get();
-        // $sub_categories = subCategory::with('main_categories')->whereIn('main_category_id',$main_categories)->get();
-        return view('authenticated.bulletinboard.post_create', compact('main_categories'));
+        $sub_categories = SubCategory::with('main_categories')->whereIn('main_category_id',$main_categories)->get();
+        return view('authenticated.bulletinboard.post_create', compact('main_categories','sub_categories'));
     }
 
     //投稿の新規作成
@@ -92,7 +92,7 @@ class PostsController extends Controller
     //サブカテゴリーに単語を追加
     public function subCategoryCreate(Request $request){
         SubCategory::create([
-            'main_category_id' => $request->main_category,
+            'main_category_id' => $request->main_category_id,
             'sub_category' => $request->sub_category_name
         ]);
         return redirect()->route('post.input');
