@@ -21,7 +21,7 @@ class PostsController extends Controller
     public function show(Request $request){
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::get();
-        $sub_categories = SubCategory::get();
+        // $sub_categories = SubCategory::get();
         $like = new Like;
         $post_comment = new Post;
         if(!empty($request->keyword)){
@@ -48,9 +48,10 @@ class PostsController extends Controller
         return view('authenticated.bulletinboard.post_detail', compact('post'));
     }
 
-    //
+    //メインカテゴリーを投稿フォームに渡す
     public function postInput(){
         $main_categories = MainCategory::get();
+        // $sub_categories = subCategory::with('main_categories')->whereIn('main_category_id',$main_categories)->get();
         return view('authenticated.bulletinboard.post_create', compact('main_categories'));
     }
 
@@ -83,17 +84,18 @@ class PostsController extends Controller
 
     //メインカテゴリーに単語を追加
     public function mainCategoryCreate(Request $request){
-        MainCategory::create(['main_category' => $request->main_category_name]);
+        MainCategory::create([
+            'main_category' => $request->main_category_name]);
         return redirect()->route('post.input');
     }
 
     //サブカテゴリーに単語を追加
     public function subCategoryCreate(Request $request){
-        $sub_category = SubCategory::create([
-            'main_category_id' => $request->main_category_id,
-            'sub_category' => $request->sub_category,
+        SubCategory::create([
+            'main_category_id' => $request->main_category,
+            'sub_category' => $request->sub_category_name
         ]);
-        return redirect()->route('post.show');
+        return redirect()->route('post.input');
     }
 
     //コメントの新規作成
