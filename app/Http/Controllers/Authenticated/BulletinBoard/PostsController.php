@@ -50,7 +50,7 @@ class PostsController extends Controller
         return view('authenticated.bulletinboard.post_detail', compact('post'));
     }
 
-    //メインカテゴリーを投稿フォームに渡す
+    //メイン、サブカテゴリーを投稿フォームに渡す
     public function postInput(){
         $main_categories = MainCategory::get();
         $sub_categories = SubCategory::with('main_categories')->whereIn('main_category_id',$main_categories)->get();

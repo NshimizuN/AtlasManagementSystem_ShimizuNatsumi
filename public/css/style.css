@@ -258,6 +258,10 @@ li {
   border-radius: 5px;
 }
 
+.selected_subjects {
+  display: block;
+}
+
 .reserve_users_area span {
   font-size: 12px;
 }

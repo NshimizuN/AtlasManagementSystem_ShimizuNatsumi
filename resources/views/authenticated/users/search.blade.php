@@ -101,10 +101,14 @@
               <option value="4" class="">生徒</option>
             </select>
           </div>
+          <br>
           <!-- 選択科目 -->
-          <div class="selected_engineer">
-            <label>選択科目</label>
-
+          <div class="">
+            <label class="selected_subjects">選択科目</label>
+            @foreach($subjects as $subject)
+            <span>{{ $subject->subject }}</span>
+            <input type="checkbox" name="subject" value="{{ old('subject') }}" form="userSearchRequest">
+            @endforeach
           </div>
         <!-- </div> -->
       </div>
