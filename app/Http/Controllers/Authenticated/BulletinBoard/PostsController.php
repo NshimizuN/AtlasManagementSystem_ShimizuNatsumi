@@ -23,7 +23,7 @@ class PostsController extends Controller
     public function show(Request $request){
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::get();
-        // $sub_categories = SubCategory::get();
+        $sub_categories = SubCategory::get();
         $like = new Like;
         $post_comment = new Post;
         if(!empty($request->keyword)){
@@ -53,7 +53,7 @@ class PostsController extends Controller
     //メイン、サブカテゴリーを投稿フォームに渡す
     public function postInput(){
         $main_categories = MainCategory::get();
-        $sub_categories = SubCategory::with('main_categories')->whereIn('main_category_id',$main_categories)->get();
+        $sub_categories = SubCategory::with('main_categories')->where('main_category_id',$main_categories)->get();
         return view('authenticated.bulletinboard.post_create', compact('main_categories','sub_categories'));
     }
 

@@ -10,19 +10,15 @@
       <p class="mb-0">カテゴリー</p>
       <select class="w-100" form="postCreate" name="post_category_id">
         @foreach($main_categories as $main_category)
-        <option label="{{ $main_category->main_category }}"></option>
-        @endforeach
+        <optgroup label="{{ $main_category->main_category }}">
+          @foreach($sub_categories as $sub_category)
+          <option value="{{ $sub_category->sub_category }}"></option>
+          @endforeach
+        </optgroup>
+      @endforeach
       </select>
     </div>
-    <!-- サブカテゴリー -->
-    <div class="">
-      <p class="mb-0">サブカテゴリー</p>
-      <select class="w-100" form="postCreate" name="sub_category">
-        @foreach($sub_categories as $sub_category)
-        <option label="{{ $sub_category->sub_category }}"></option>
-        @endforeach
-      </select>
-    </div>
+
     <!-- タイトル -->
     <div class="mt-3">
       @if($errors->first('post_title'))
