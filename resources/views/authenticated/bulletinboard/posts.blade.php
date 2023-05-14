@@ -49,20 +49,16 @@
       <!-- カテゴリー -->
       <div class="">
         <p class="m-0">教科</p>
-       <ul>
         @foreach($categories as $category)
-        <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></li>
-        @endforeach
-       </ul>
+      <input type="submit" name="category_word" class="category_btn" value="{{ $category->main_category }}" form="postSearchRequest">
+      @endforeach
      </div>
      <!-- サブカテゴリー -->
       <div class="">
         <p class="m-0">参考書</p>
-       <ul>
         @foreach($categories as $category)
-        <li class="sub_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}{{ $category->sub_category}}<span></li>
-        @endforeach
-       </ul>
+      <input type="submit" name="category_word" class="category_btn" value="{{ $category->main_category,$category->sub_category->subject }}" form="postSearchRequest">
+      @endforeach
      </div>
     </div>
   </div>

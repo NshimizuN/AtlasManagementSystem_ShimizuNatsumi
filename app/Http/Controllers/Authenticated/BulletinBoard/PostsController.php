@@ -20,23 +20,28 @@ use Auth;
 class PostsController extends Controller
 {
     //投稿を表示させる
-    public function show(Request $request){
+    public function show(Request $request)
+    {
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::get();
-        $sub_categories = SubCategory::get();
+        // $sub_categories = SubCategory::get();
         $like = new Like;
         $post_comment = new Post;
+        // キーワードを入力して抽出
         if(!empty($request->keyword)){
             $posts = Post::with('user', 'postComments')
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
+            // 特定のカテゴリーの抽出
         }else if($request->category_word){
             $sub_category = $request->category_word;
             $posts = Post::with('user', 'postComments')->get();
+            // いいねした投稿の抽出
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
             ->whereIn('id', $likes)->get();
+            // 自分の投稿の抽出
         }else if($request->my_posts){
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
@@ -53,18 +58,21 @@ class PostsController extends Controller
     //メイン、サブカテゴリーを投稿フォームに渡す
     public function postInput(){
         $main_categories = MainCategory::get();
-        $sub_categories = SubCategory::with('main_categories')->where('main_category_id',$main_categories)->get();
+        $sub_categories = SubCategory::get();
         return view('authenticated.bulletinboard.post_create', compact('main_categories','sub_categories'));
     }
 
     //投稿の新規作成
     public function postCreate(PostFormRequest $request){
         DB::beginTransaction();
+        $post_category = $request->post_category_id;
         $post = Post::create([
             'user_id' => Auth::id(),
             'post_title' => $request->post_title,
-            'post' => $request->post_body
+            'post' => $request->post_body,
         ]);
+        $post_create = Post::findOrFail($post->id);
+        $post_create->subCategories()->attach($post_category);
         DB::commit();
         return redirect()->route('post.show');
     }
