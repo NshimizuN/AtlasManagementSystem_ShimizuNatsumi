@@ -7,8 +7,10 @@ class SelectIdDetails implements DisplayUsers{
 
   // 改修課題：選択科目の検索機能
   public function resultUsers($keyword, $category, $updown, $gender, $role, $subjects){
+    //キーワード 絞り込まない
     if(is_null($keyword)){
       $keyword = User::get('id')->toArray();
+      //絞り込む
     }else{
       $keyword = array($keyword);
     }

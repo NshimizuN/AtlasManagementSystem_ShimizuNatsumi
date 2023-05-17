@@ -24,7 +24,7 @@ class PostsController extends Controller
     {
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::get();
-        // $sub_categories = SubCategory::get();
+        $second_categories = SubCategory::get();
         $like = new Like;
         $post_comment = new Post;
         // キーワードを入力して抽出

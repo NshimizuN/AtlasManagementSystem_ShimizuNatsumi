@@ -50,14 +50,14 @@
       <div class="">
         <p class="m-0">教科</p>
         @foreach($categories as $category)
-      <input type="submit" name="category_word" class="category_btn" value="{{ $category->main_category }}" form="postSearchRequest">
+      <input type="submit" name="category_word" class="category_btn" value="{{$category->main_category}}" form="postSearchRequest">
       @endforeach
      </div>
      <!-- サブカテゴリー -->
       <div class="">
         <p class="m-0">参考書</p>
-        @foreach($categories as $category)
-      <input type="submit" name="category_word" class="category_btn" value="{{ $category->main_category,$category->sub_category->subject }}" form="postSearchRequest">
+         @foreach($second_categories as $second_category)
+      <input type="submit" name="category_word" class="category_btn" value="{{ $second_category->sub_category }}" form="postSearchRequest">
       @endforeach
      </div>
     </div>
