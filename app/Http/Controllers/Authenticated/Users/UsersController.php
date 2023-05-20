@@ -21,7 +21,7 @@ class UsersController extends Controller
         $updown = $request->updown;
         $gender = $request->sex;
         $role = $request->role;
-        $subjects = $request->subject;
+        $subjects = new Subjects();
         $userFactory = new SearchResultFactories();
         $users = $userFactory->initializeUsers($keyword, $category, $updown, $gender, $role, $subjects);
         $subjects = Subjects::all();
