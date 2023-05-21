@@ -83,6 +83,7 @@ class User extends Authenticatable
         return Like::where('like_user_id', Auth::id())->where('like_post_id', $post_id)->first(['likes.id']);
     }
 
+    //自分がいいねした投稿
     public function likePostId(){
         return Like::where('like_user_id', Auth::id());
     }

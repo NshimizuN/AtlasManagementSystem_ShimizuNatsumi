@@ -35,7 +35,14 @@ class PostsController extends Controller
             // 特定のカテゴリーの抽出
         }else if($request->category_word){
             $sub_category = $request->category_word;
-            $posts = Post::with('user', 'postComments')->get();
+            //選択したサブカテゴリーを$sub_categoryへ代入
+            $sub_category_id = SubCategory::where('sub_category' , $sub_category)->first();
+            //$sub_categoryと一致しているワードを、subCategoryモデル（sub_categoriesテーブル）のsub_categoryカラムから探して、->first();のidを取得
+            $posts = Post::with('user', 'postComments')->whereHas('subCategories',function($q) use ($sub_category_id){
+                //whereHas('サブカテゴリーのリレーション',function($q) use ($sub_category_idを使用することを宣言)
+                $q->where('post_sub_categories.sub_category_id' , $sub_category_id->id);
+                //$q->where('postとsub_categoriesの中間テーブル'.左の中間テーブルで一致させたいカラム' , useで使用宣言した変数->id(idを取得));
+            })->get();
             // いいねした投稿の抽出
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
@@ -93,14 +100,14 @@ class PostsController extends Controller
     }
 
     //メインカテゴリーに単語を追加
-    public function mainCategoryCreate(Request $request){
+    public function mainCategoryCreate(MainCategoryRequest $request){
         MainCategory::create([
             'main_category' => $request->main_category_name]);
         return redirect()->route('post.input');
     }
 
     //サブカテゴリーに単語を追加
-    public function subCategoryCreate(Request $request){
+    public function subCategoryCreate(SubCategoryRequest $request){
         SubCategory::create([
             'main_category_id' => $request->main_category_id,
             'sub_category' => $request->sub_category_name

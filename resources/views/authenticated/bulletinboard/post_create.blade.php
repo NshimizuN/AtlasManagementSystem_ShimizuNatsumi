@@ -49,16 +49,19 @@
     <div class="category_area mt-5 p-5">
       <!-- メインカテゴりを追加ー -->
       <div class="">
+      @error('main_category')
+      <li>{{$message}}</li>
+      @enderror
         <p class="m-0">メインカテゴリー</p>
         <input type="text" class="w-100" name="main_category_name" form="mainCategoryCreate" method="post" value="{{old('main_category_name')}}">
         <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="mainCategoryCreate">
         <form action="{{ route('main.category.create') }}" method="post" id="mainCategoryCreate">{{ csrf_field() }}</form>
-        @error('main_category_name')
-            <li>{{$message}}</li>
-            @enderror
       </div>
       <!-- サブカテゴリー追加 -->
       <div class="">
+      @error('sub_category')
+      <li>{{$message}}</li>
+      @enderror
         <p class="m-0">サブカテゴリー</p>
         <select class="w-100" form="subCategoryCreate" name="main_category_id">
         <option selected disabled>----</option>
@@ -69,9 +72,6 @@
        <input type="text" class="w-100" name="sub_category_name" form="subCategoryCreate" method="post" valie="{{old('sub_category_name')}}">
        <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="subCategoryCreate">
        <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryCreate">{{ csrf_field() }}</form>
-        @error('sub_category_name')
-            <li>{{$message}}</li>
-            @enderror
      </div>
    </div>
   </div>

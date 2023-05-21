@@ -27,7 +27,7 @@ class SubCategoryRequest extends FormRequest
     {
         return [
             'main_category_id' => 'required|required_with:id|',
-            'sub_category_name' => 'required|string|max:100|unique:sub_category',
+            'sub_category' => 'required|string|max:100|unique:sub_categories',
         ];
     }
 
@@ -37,9 +37,9 @@ class SubCategoryRequest extends FormRequest
             'main_category_id.required' => '必須項目です。',
             'main_category_id.required_with:id' => '存在しないカテゴリーです。',
 
-            'sub_category_name.required' => '必須項目です。',
-            'sub_category_name.string' => '文字で入力してください。',
-            'sub_category_name.max' => '100文字以内で入力してください。',
+            'sub_category.required' => '必須項目です。',
+            'sub_category.string' => '文字で入力してください。',
+            'sub_category.max' => '100文字以内で入力してください。',
         ];
     }
 }
