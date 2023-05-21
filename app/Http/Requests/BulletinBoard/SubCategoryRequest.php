@@ -27,7 +27,12 @@ class SubCategoryRequest extends FormRequest
     {
         return [
             'main_category_id' => 'required|required_with:id|',
-            'sub_category' => 'required|string|max:100|unique:sub_categories',
+            'sub_category' =>[
+                'required',
+                'string',
+                'max:100',
+                Rule::unique('sub_categories')->ignore('main_category_id', '!=' ,'sub_category_name'),
+            ],
         ];
     }
 
