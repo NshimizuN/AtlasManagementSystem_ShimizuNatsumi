@@ -27,7 +27,7 @@ class SubCategoryRequest extends FormRequest
     {
         return [
             'main_category_id' => 'required|required_with:id|',
-            'sub_category_name' => 'required|string|max:100|unique:sub_categories,sub_category,NULL,id,deleted_at,NULL|where:main_category_id,main_category_id . "=" . $id',
+            'sub_category_name' => 'required|string|max:100|unique:sub_categories,sub_category,'. $main_category_id .',main_category_id,deleted_at,NULL,',
         ];
     }
 

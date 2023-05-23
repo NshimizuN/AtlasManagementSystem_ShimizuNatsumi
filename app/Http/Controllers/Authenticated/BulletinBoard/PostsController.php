@@ -109,7 +109,7 @@ class PostsController extends Controller
     //サブカテゴリーに単語を追加
     public function subCategoryCreate(SubCategoryRequest $request){
         SubCategory::create([
-            'main_category_id' => $request->main_category_id,
+            $main_category_id ='main_category_id' => $request->main_category_id,
             'sub_category' => $request->sub_category_name
         ]);
         return redirect()->route('post.input');
