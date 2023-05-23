@@ -26,17 +26,17 @@ class MainCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'main_category' => 'required|string|max:100|unique:main_categories',
+            'main_category_name' => 'required|string|max:100|unique:main_categories,main_category,NULL,id,deleted_at,NULL|where:main_category_id,main_category_id',
         ];
     }
 
        //メッセージ
         public function messages(){
         return [
-            'main_category.required' => '必須項目です。',
-            'main_category.string' => '文字で入力してください。',
-            'main_category.max' => '100文字以下で入力してください。',
-            'main_category.unique' => 'すでに登録されています。',
+            'main_category_name.required' => '必須項目です。',
+            'main_category_name.string' => '文字で入力してください。',
+            'main_category_name.max' => '100文字以下で入力してください。',
+            'main_category_name.unique' => 'すでに登録されています。',
         ];
     }
 }
