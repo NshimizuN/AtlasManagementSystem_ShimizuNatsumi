@@ -106,12 +106,8 @@
           <div class="">
             <label class="selected_subjects">選択科目</label>
             @foreach($subjects as $subject)
-               @if($user->$subjects->$subject('id', $subject->id))
-               <input type="checkbox" name="subject[]" value="{{ $subject->id}}" checked>
-               @else
-               <input type="checkbox" name="subject[]" value="{{ $subject->id}}">
-               @endif
-            <span>{{ $subject->subject }}</span>
+            <input type="checkbox" id="subject_{{ $subject->id }}" name="subject[]" value="{{ $subject->id }}" form="userSearchRequest">
+            <label for="subject_{{ $subject->id }}">{{ $subject->subject }}</label>
             @endforeach
           </div>
         <!-- </div> -->
