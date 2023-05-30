@@ -7,17 +7,20 @@ use Illuminate\Http\Request;
 use App\Calendars\General\CalendarView;
 use App\Models\Calendars\ReserveSettings;
 use App\Models\Calendars\Calendar;
+use App\Models\Calendars\Calendars;
 use App\Models\USers\User;
 use Auth;
 use DB;
 
 class CalendarsController extends Controller
 {
+    // スクール予約画面を表示する
     public function show(){
         $calendar = new CalendarView(time());
         return view('authenticated.calendar.general.calendar', compact('calendar'));
     }
 
+    // スクール予約画面から予約をする
     public function reserve(Request $request){
         DB::beginTransaction();
         try{
@@ -35,4 +38,16 @@ class CalendarsController extends Controller
         }
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
+
+    // //予約の削除
+    //     public function delete($id)
+    // {
+    //     //dd("123");
+    //     \DB::table('posts')
+    //         ->where('id', $id)
+    //         ->delete();
+
+    //     return redirect('top'); //トップページへリダイレクト（URL）
+    // }
+
 }

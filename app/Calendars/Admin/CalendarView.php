@@ -3,6 +3,7 @@ namespace App\Calendars\Admin;
 use Carbon\Carbon;
 use App\Models\Users\User;
 
+// スクール枠登録
 class CalendarView{
   private $carbon;
 
@@ -35,10 +36,12 @@ class CalendarView{
 
     foreach($weeks as $week){
       $html[] = '<tr class="'.$week->getClassName().'">';
+
       $days = $week->getDays();
       foreach($days as $day){
         $startDay = $this->carbon->format("Y-m-01");
         $toDay = $this->carbon->format("Y-m-d");
+
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<td class="past-day border">';
         }else{

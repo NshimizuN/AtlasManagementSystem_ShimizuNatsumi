@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Users\Subjects;
 use App\Models\Posts\Post;
 use App\Models\Posts\Like;
+use App\Models\Calendars\Calendars;
+use App\Models\Calendars\Calendar;
+use App\Models\Calendars\ReserveSettings;
 use Auth;
 
 class User extends Authenticatable
@@ -60,10 +63,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Posts\Post');
     }
 
+    //予約カレンダーとリレーション
     public function calendars(){
         return $this->belongsToMany('App\Models\Calendars\Calendar', 'calendar_users', 'user_id', 'calendar_id')->withPivot('user_id', 'id');
     }
 
+    //reserve-settingsテーブルとリレーション
     public function reserveSettings(){
         return $this->belongsToMany('App\Models\Calendars\ReserveSettings', 'reserve_setting_users', 'user_id', 'reserve_setting_id')->withPivot('id');
     }
