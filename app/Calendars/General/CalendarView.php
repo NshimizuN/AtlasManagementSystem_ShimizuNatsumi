@@ -15,6 +15,7 @@ class CalendarView{
     $this->carbon = new Carbon($date);
   }
 
+  // タイトル（該当年月）を作成
   public function getTitle(){
     return $this->carbon->format('Y年n月');
   }
@@ -66,24 +67,35 @@ class CalendarView{
         $html[] = $day->render();
         // $html[] = $day->dayPartCounts($day->everyDay());
 
-        // 予約内容
+        // ①予約登録ができたら
         if(in_array($day->everyDay(), $day->authReserveDay())){
+          // ①②を表示させる
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
+          // ②1部の予約が完了したら
           if($reservePart == 1){
+            // ②「リモ1部」と表示する
             $reservePart = "リモ1部";
+            // ②2部の予約が完了したら
           }else if($reservePart == 2){
+            // ②「リモ2部」と表示する
             $reservePart = "リモ2部";
+            // ②3部の予約が完了したら
           }else if($reservePart == 3){
+            // ②「リモ3部」と表示する
             $reservePart = "リモ3部";
           }
+          // ③過去現在なら
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px"></p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            // ③未来なら
           }else{
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
+          // ①予約をしなかったら
         }else{
+          // ①予約フォームを表示
           $html[] = $day->selectPart($day->everyDay());
         }
         $html[] = $day->getDate();
