@@ -12,18 +12,21 @@ class CalendarWeekDay{
     $this->carbon = new Carbon($date);
   }
 
+  // format()関数に「D」を指定すると「Sun」「Mon」などの曜日を省略形式で取得できます
   function getClassName(){
     return "day-" . strtolower($this->carbon->format("D"));
   }
 
+  //受付終了
   function pastClassName(){
-    return ;
+    $html[] ='受付終了';
+     return "day-" . $this->carbon ;
   }
 
   /**
    * @return
    */
-
+  // format()関数に「j」を指定すると先頭にゼロをつけない日付けを取得できます。
    function render(){
      return '<p class="day">' . $this->carbon->format("j"). '日</p>';
    }

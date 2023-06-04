@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Authenticated\Calendar\General;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+// CalendarViewをコントローラーから使う
 use App\Calendars\General\CalendarView;
+
 use App\Models\Calendars\ReserveSettings;
 use App\Models\Calendars\Calendar;
 use App\Models\Calendars\Calendars;
@@ -16,7 +19,9 @@ class CalendarsController extends Controller
 {
     // スクール予約を表示する
     public function show(){
+        // CalendarViewクラスは例えば次のように呼び出して使う、time()を使って現在時刻を渡す
         $calendar = new CalendarView(time());
+
         return view('authenticated.calendar.general.calendar', compact('calendar'));
     }
 
