@@ -14,13 +14,13 @@ use DB;
 
 class CalendarsController extends Controller
 {
-    // スクール予約画面を表示する
+    // スクール予約を表示する
     public function show(){
         $calendar = new CalendarView(time());
         return view('authenticated.calendar.general.calendar', compact('calendar'));
     }
 
-    // スクール予約画面から予約をする
+    // スクール予約から予約をする
     public function reserve(Request $request){
         DB::beginTransaction();
         try{
