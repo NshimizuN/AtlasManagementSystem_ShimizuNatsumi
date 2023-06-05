@@ -90,13 +90,22 @@ class CalendarView{
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
             // ③未来なら
           }else{
+            // ③「リモ○」と表示する
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
           // ①予約をしなかったら
         }else{
-          // ①予約フォームを表示
-          $html[] = $day->selectPart($day->everyDay());
+          // ④過去・当日なら
+          if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
+            // ④「受付終了」を表示する
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:14px">受付終了</p>';
+            // ④未来なら
+          }else{
+          // ④予約フォームを表示
+           $html[] = $day->selectPart($day->everyDay());
+           $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+          }
         }
         $html[] = $day->getDate();
         $html[] = '</td>';

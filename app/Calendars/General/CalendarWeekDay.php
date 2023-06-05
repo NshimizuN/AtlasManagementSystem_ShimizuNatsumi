@@ -69,7 +69,7 @@ class CalendarWeekDay{
     //  １部の予約が埋まったら
      if($one_part_frame == "0"){
       //  残り0枠を表示する
-       $html[] = '<p>あ</p>';
+       $html[] = '<option value="1" disabled>リモ1部(残り0枠)</option>';
       //  １部の予約が残ってたら
      }else{
       //  残数を表示する
