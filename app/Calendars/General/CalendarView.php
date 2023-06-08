@@ -100,14 +100,16 @@ class CalendarView{
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
             // ④「受付終了」を表示する
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:14px">受付終了</p>';
+            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
             // ④未来なら
           }else{
           // ④予約フォームを表示
            $html[] = $day->selectPart($day->everyDay());
-           $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
         }
         $html[] = $day->getDate();
+        // dd($day);
+        // $html[] = $reservePart->getPart();
         $html[] = '</td>';
       }
       $html[] = '</tr>';

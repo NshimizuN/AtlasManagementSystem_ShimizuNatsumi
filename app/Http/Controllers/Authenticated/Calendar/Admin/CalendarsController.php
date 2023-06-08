@@ -14,21 +14,25 @@ use DB;
 
 class CalendarsController extends Controller
 {
+    //スクール予約確認 カレンダーを表示する
     public function show(){
         $calendar = new CalendarView(time());
         return view('authenticated.calendar.admin.calendar', compact('calendar'));
     }
 
+    //スクール予約確認 各部の詳細を表示する
     public function reserveDetail($user_id = 0, $date, $part){
         $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
         return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
     }
 
+    //スクール枠登録 カレンダーを表示
     public function reserveSettings(){
         $calendar = new CalendarSettingView(time());
         return view('authenticated.calendar.admin.reserve_setting', compact('calendar'));
     }
 
+    //スクール枠登録 新しく登録する
     public function updateSettings(Request $request){
         $reserveDays = $request->input('reserve_day');
         foreach($reserveDays as $day => $parts){
