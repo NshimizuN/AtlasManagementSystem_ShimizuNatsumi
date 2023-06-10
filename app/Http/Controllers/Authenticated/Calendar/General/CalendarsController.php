@@ -46,15 +46,10 @@ class CalendarsController extends Controller
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
 
-    // //予約の削除
-    //     public function delete($id)
-    // {
-    //     //dd("123");
-    //     \DB::table('posts')
-    //         ->where('id', $id)
-    //         ->delete();
-
-    //     return redirect('top'); //トップページへリダイレクト（URL）
-    // }
+    //予約の削除
+    public function delete($id){
+        ReserveSettings::findOrFail($id)->delete();
+        return redirect()->route('calendar.general.show');
+    }
 
 }
