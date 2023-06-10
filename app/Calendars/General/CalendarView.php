@@ -92,10 +92,10 @@ class CalendarView{
           }else{
             // ③「リモ○」と表示する
             // $html[] = '<a href="/delete/calendar">';
-            $html[]='<form action="{{ route('deleteParts', ['id' => $reserve_settings->id]) }}" method="POST">'
-            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            // $html[]='<form action="{{ route('deleteParts', ['id' => $reserve_settings->id]) }}" method="POST">'
+            $html[] = '<button type="submit" class="modalOpen btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" >'. $reservePart .'</button>';
             // $html[]='</form>'
-            $html[] = '</a>';
+            // $html[] = '</a>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
           // ①予約をしなかったら
@@ -149,4 +149,5 @@ class CalendarView{
     }
     return $weeks;
   }
+
 }
