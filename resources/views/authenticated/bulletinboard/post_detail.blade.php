@@ -75,7 +75,7 @@
           <input type="submit" class="btn btn-primary d-block" value="編集">
         </div>
       </div>
-      {{ csrf_field() }}
+      <!-- {{ csrf_field() }} -->
     </form>
   </div>
 </div>
