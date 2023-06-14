@@ -93,7 +93,7 @@ class CalendarView{
             // ③「リモ○」と表示する
             // $html[] = '<a href="/delete/calendar">';
             // $html[]='<form action="{{ route('deleteParts', ['id' => $reserve_settings->id]) }}" method="POST">'
-            $html[] = '<button type="submit" id="edit-modal-open" class="edit-modal-open btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" >'. $reservePart .'</button>';
+            $html[] = '<button type="submit" id="edit-modal-open" class="delete-modal-open btn btn-danger p-0 w-75" getData="{{ $getData->getData }}" getPart="{{ $getPart->getPart }}" reserve_settings="{{ $reserve_settings->reserve_settings }}  name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" >'. $reservePart .'</button>';
             // $html[]='</form>'
             // $html[] = '</a>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';

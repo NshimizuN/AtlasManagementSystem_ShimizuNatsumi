@@ -41,9 +41,10 @@
       <div class="w-100">
         <div class="modal-inner-date w-50 m-auto">
           <!-- <input type="text" name="post_title" placeholder="タイトル" class="w-100"> -->
-
-          <p>予約日：<span>$getDate</span></p>
-          <p>時間：<span>$getPart</span></p>
+          <span>予約日：</span>
+          <p  name="getData"></p>
+          <span>時間：</span>
+          <p  name="getPart"></p>
           <br>
           <p>上記予約をキャンセルしてもよろしいでしょうか？</p>
         </div>
@@ -52,7 +53,7 @@
         </div>
         <div class="w-50 m-auto edit-modal-btn d-flex">
           <a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>
-          <input type="hidden" class="delete-modal-hidden" name="post_id" value="">
+          <input type="hidden" class="delete-modal-hidden" name="reserve_settings" value="">
           <input type="submit"  class="btn btn-primary d-block" value="キャンセル">
         </div>
       </div>

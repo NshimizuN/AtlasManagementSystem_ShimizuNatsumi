@@ -31,9 +31,10 @@ class CalendarsController extends Controller
         try{
             $getPart = $request->getPart;
             // dd($getPart);
-            $getDate = $request->getData;
+            $getData = $request->getData;
             // dd($getDate);
-            $reserveDays = array_filter(array_combine($getDate, $getPart));
+            $reserveDays = array_filter(array_combine($getData, $getPart));
+            //$getDate=キー,$getPart=値
             foreach($reserveDays as $key => $value){
                 $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
                 $reserve_settings->decrement('limit_users');
