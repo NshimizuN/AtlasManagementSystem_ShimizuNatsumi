@@ -41,10 +41,16 @@
       <div class="w-100">
         <div class="modal-inner-date w-50 m-auto">
           <!-- <input type="text" name="post_title" placeholder="タイトル" class="w-100"> -->
+          <div class="modal-inner-day w-50 m-auto">
           <span>予約日：</span>
           <p  name="getData"></p>
+          </div>
+
+          <div class="modal-inner-part w-50 m-auto">
           <span>時間：</span>
           <p  name="getPart"></p>
+          </div>
+
           <br>
           <p>上記予約をキャンセルしてもよろしいでしょうか？</p>
         </div>

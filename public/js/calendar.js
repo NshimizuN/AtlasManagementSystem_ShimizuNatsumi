@@ -37,8 +37,8 @@ $(function () {
     var getPart = $(this).attr('getPart');
     var reserve_settings = $(this).attr('reserve_settings');
     //modal-inner-date内のspanタグを指定 .val(getData)を挿入
-    $('.modal-inner-date p').text(getData);
-    $('.modal-inner-date p').text(getPart);
+    $('.modal-inner-day p').text(getData);
+    $('.modal-inner-part p').text(getPart);
     //５５行目 キャンセルの挙動 reserve_settingsを値として入れる
     $('.delete-modal-hidden').val(reserve_settings);
     return false;

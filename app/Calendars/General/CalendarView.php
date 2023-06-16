@@ -86,9 +86,6 @@ class CalendarView{
           }
           // ③過去現在なら
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            // $html[] = '<p class="m-auto p-0 w-75" style="font-size:14px">受付終了</p>';
-            // $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
-
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:14px  value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" >'. $reservePart .'</p>';
             // ③未来なら
           }else{
