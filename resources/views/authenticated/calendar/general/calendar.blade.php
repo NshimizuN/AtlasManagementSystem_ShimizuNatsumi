@@ -40,27 +40,23 @@
     <form action="{{route('deleteParts')}}" method="post">
       <div class="w-100">
         <div class="modal-inner-date w-50 m-auto">
-          <!-- <input type="text" name="post_title" placeholder="タイトル" class="w-100"> -->
           <div class="modal-inner-day w-50 m-auto">
-          <span>予約日：</span>
-          <p  name="getData"></p>
+          <span class="get-date">予約日：<p class="get-date" name="getData"></p></span>
           </div>
 
           <div class="modal-inner-part w-50 m-auto">
-          <span>時間：</span>
-          <p  name="getPart"></p>
+          <span class="get-date">時間：リモ<p  name="getPart" class="get-date"></p>部</span>
           </div>
 
           <br>
+
           <p>上記予約をキャンセルしてもよろしいでしょうか？</p>
         </div>
-        <div class="modal-inner-body w-50 m-auto pt-3 pb-3">
-          <!-- <textarea placeholder="投稿内容" name="post_body" class="w-100"></textarea> -->
-        </div>
-        <div class="w-50 m-auto edit-modal-btn d-flex">
+
+        <div class="w-50 m-auto delete-modal-btn d-flex">
           <a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>
           <input type="hidden" class="delete-modal-hidden" name="reserve_settings" value="">
-          <input type="submit"  class="btn btn-primary d-block" value="キャンセル">
+          <input type="submit" onclick="location.href='{{route('deleteParts')}}'" class="btn btn-primary d-block" value="キャンセル">
         </div>
       </div>
       <!-- {{ csrf_field() }} -->

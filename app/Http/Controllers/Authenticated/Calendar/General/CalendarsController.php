@@ -49,7 +49,11 @@ class CalendarsController extends Controller
 
     //予約の削除
     public function delete($id){
-        ReserveSettings::findOrFail($id)->delete();
+        dd("123");
+        // $id = $request->id;
+        \DB::table('reserve_setting_users')
+        ->findOrFail($id)
+        ->delete();
         return redirect()->route('calendar.general.show');
     }
 

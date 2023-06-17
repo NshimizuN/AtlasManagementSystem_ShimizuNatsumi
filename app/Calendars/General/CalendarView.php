@@ -86,15 +86,12 @@ class CalendarView{
           }
           // ③過去現在なら
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:14px  value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" >'. $reservePart .'</p>';
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px  value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" >'. $reservePart .'</p>';
+            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
             // ③未来なら
           }else{
             // ③「リモ○」と表示する
-            // $html[] = '<a href="/delete/calendar">';
-            // $html[]='<form action="{{ route('deleteParts', ['id' => $reserve_settings->id]) }}" method="POST">'
-            $html[] = '<button type="submit" id="edit-modal-open" class="delete-modal-open btn btn-danger p-0 w-75" getData="{{ $getData->getData }}" getPart="{{ $getPart->getPart }}" reserve_settings="{{ $reserve_settings->reserve_settings }}  name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" >'. $reservePart .'</button>';
-            // $html[]='</form>'
-            // $html[] = '</a>';
+            $html[] = '<button type="submit" id="edit-modal-open" class="delete-modal-open btn btn-danger p-0 w-75" getData="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" getPart="'. $day->authReserveDate($day->everyDay())->first()->setting_part .'" reserve_settings="'. $day->authReserveDate($day->everyDay())->first()->setting_id .'" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->id .'" >'. $reservePart .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
           // ①予約をしなかったら

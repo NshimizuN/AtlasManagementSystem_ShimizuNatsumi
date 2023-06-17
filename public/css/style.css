@@ -114,6 +114,20 @@ li {
   width: 60%;
 }
 
+/* 予約キャンセルモーダル */
+.delete-modal-btn {
+  justify-content: space-between;
+}
+
+.get-date {
+  display: inline-block;
+}
+
+.get-date {
+  display: inline-block;
+}
+
+
 /* 掲示板 */
 .sub_categories {
   display: none;
