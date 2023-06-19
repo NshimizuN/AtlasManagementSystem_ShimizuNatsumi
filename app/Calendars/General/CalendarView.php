@@ -91,7 +91,7 @@ class CalendarView{
             // ③未来なら
           }else{
             // ③「リモ○」と表示する
-            $html[] = '<button type="submit" id="edit-modal-open" class="delete-modal-open btn btn-danger p-0 w-75" getData="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" getPart="'. $day->authReserveDate($day->everyDay())->first()->setting_part .'" reserve_settings="'. $day->authReserveDate($day->everyDay())->first()->setting_id .'" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->id .'" >'. $reservePart .'</button>';
+            $html[] = '<button type="submit" id="edit-modal-open" class="delete-modal-open btn btn-danger p-0 w-75" getData="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" getPart="'. $day->authReserveDate($day->everyDay())->first()->setting_part .'" reserve_settings="'. $day->authReserveDate($day->everyDay())->first()->id .'" form="deleteParts" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->id .'" >'. $reservePart .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
           // ①予約をしなかったら

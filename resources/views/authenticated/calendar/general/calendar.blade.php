@@ -19,33 +19,21 @@
   </div>
 </div>
 
- <!-- <button id="modalOpen" class="button">Click Me</button> -->
-  <!-- <div id="easyModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1>Great job 🎉</h1>
-        <span class="modalClose">閉じる</span>
-      </div>
-      <div class="modal-body">
-        <p>You've just displayed this awesome Modal Window!</p>
-        <p>Let's enjoy learning JavaScript ☺️</p>
-      </div>
-    </div>
-  </div>
-  <script src="calendar.js"></script> -->
 
-  <div class="modal js-modal">
+<div class="modal js-modal">
   <div class="modal__bg js-modal-close"></div>
   <div class="modal__content">
-    <form action="{{route('deleteParts')}}" method="post">
       <div class="w-100">
         <div class="modal-inner-date w-50 m-auto">
+
           <div class="modal-inner-day w-50 m-auto">
-          <span class="get-date">予約日：<p class="get-date" name="getData"></p></span>
+           <p class="get-date">予約日：<span class="get-date" name="getData"></span></p>
+           <input type="hidden"  name="getData" value="getData" form="deleteParts">
           </div>
 
           <div class="modal-inner-part w-50 m-auto">
-          <span class="get-date">時間：リモ<p  name="getPart" class="get-date"></p>部</span>
+           <p class="get-date">時間：リモ<span class="get-date" name="getPart" ></span>部</p>
+           <input type="hidden"  name="getPart" value="getPart"form="deleteParts">
           </div>
 
           <br>
@@ -55,12 +43,11 @@
 
         <div class="w-50 m-auto delete-modal-btn d-flex">
           <a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>
-          <input type="hidden" class="delete-modal-hidden" name="reserve_settings" value="">
-          <input type="submit" onclick="location.href='{{route('deleteParts')}}'" class="btn btn-primary d-block" value="キャンセル">
+          <input type="hidden" class="delete-modal-hidden" name="reserve_settings" value="reserve_settings" form="deleteParts">
+          <input type="submit"  class="btn btn-primary d-block" value="キャンセル" form="deleteParts">
         </div>
+
       </div>
-      <!-- {{ csrf_field() }} -->
-    </form>
   </div>
 </div>
 

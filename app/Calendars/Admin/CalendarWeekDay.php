@@ -1,6 +1,5 @@
 <?php
 namespace App\Calendars\Admin;
-
 use Carbon\Carbon;
 use App\Models\Calendars\ReserveSettings;
 
@@ -24,7 +23,7 @@ class CalendarWeekDay{
     return $this->carbon->format("Y-m-d");
   }
 
-  //
+  //予約人数をカウント
   function dayPartCounts($ymd){
     $html = [];
     //１部
@@ -38,10 +37,11 @@ class CalendarWeekDay{
     $html[] = '<div class="text-left">';
     //１部
     if($one_part){
-      // $one_part_count =
+      $one_part_count = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->count();
       $html[] = '<a href="/calendar/{id}/{data}/{$one_part}">';
-      $html[] = '<p class="day_part m-0 pt-1">1部</p>';
+      $html[] = '<p class="day_part m-0 pt-1">1部  </p>';
       $html[] = '</a>';
+      $html[] = '<p class="day_part_count m-0 pt-1">'.$one_part_count.'</p>';
       // $html[] = '<p class="d-flex m-0 p-0"><input class="w-25"" name="reserve_day['.$one_part.'][1]" type="text" form="reserveSetting" value="'.$one_part.'"></p>';
 
     }
@@ -62,6 +62,7 @@ class CalendarWeekDay{
     return implode("", $html);
   }
 
+  //スクール枠登録の表示↓
   //スクール枠登録 1部
   function onePartFrame($day){
     $one_part_frame = ReserveSettings::where('setting_reserve', $day)->where('setting_part', '1')->first();
@@ -94,6 +95,7 @@ class CalendarWeekDay{
     }
     return $three_part_frame;
   }
+  //スクール枠登録の表示↑
 
   //
   function dayNumberAdjustment(){

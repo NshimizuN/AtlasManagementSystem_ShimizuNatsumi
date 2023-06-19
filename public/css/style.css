@@ -68,9 +68,15 @@ li {
 }
 
 .day_part {
-  color: #494949;
+  color: #03AAD2;
   font-size: 12px;
 }
+
+/* .day_part_count {
+  display: inline-block;
+  color: #494949;
+  font-size: 12px;
+} */
 
 .adjust-table {
   width: 70% !important;
