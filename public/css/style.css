@@ -72,11 +72,11 @@ li {
   font-size: 12px;
 }
 
-/* .day_part_count {
+.day_part_count {
   display: inline-block;
-  color: #494949;
+  color: #000000;
   font-size: 12px;
-} */
+}
 
 .adjust-table {
   width: 70% !important;
