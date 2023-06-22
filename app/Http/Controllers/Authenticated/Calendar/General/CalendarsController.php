@@ -27,7 +27,7 @@ class CalendarsController extends Controller
 
     // スクール予約から予約をする
     public function reserve(Request $request){
-        dd($request);
+        // dd($request);
         DB::beginTransaction();
         try{
             $getPart = $request->getPart;
@@ -54,7 +54,7 @@ class CalendarsController extends Controller
     public function delete(Request $request){
         DB::beginTransaction();
         try{
-            dd($request);
+            // dd($request);
             $getPart = $request->getPart;
             //  dd($getPart);
             $getData = $request->getData;
@@ -62,9 +62,9 @@ class CalendarsController extends Controller
             //$getDate=キー,$getPart=値
                 $reserve_settings = ReserveSettings::where('setting_reserve', $getData)->where('setting_part', $getPart)->delete();
                 //日付、日時を削除
-                $reserve_settings->increment('limit_users');
+                ReserveSettings::increment('limit_users',$reserve_settings);
                 //予約枠を増やす
-                $reserve_settings->users()->delete(Auth::id());
+                // $reserve_settings->users()->delete(Auth::id());
                 //該当予約のユーザーを削除
             DB::commit();
         }catch(\Exception $e){

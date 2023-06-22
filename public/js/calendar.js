@@ -12,9 +12,9 @@ $(function () {
     var reserve_settings = $(this).attr('reserve_settings');
     //modal-inner-date内のspanタグを指定 .val(getData)を挿入
     $('.modal-inner-day span').text(getData);
-    $('.modal-inner-day input').text(getData);
+    $('.modal-inner-day input').val(getData);
     $('.modal-inner-part span').text(getPart);
-    $('.modal-inner-part input').text(getPart);
+    $('.modal-inner-part input').val(getPart);
     //５５行目 キャンセルの挙動 reserve_settingsを値として入れる
     $('.delete-modal-hidden').val(reserve_settings);
     return false;
