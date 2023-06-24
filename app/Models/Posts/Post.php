@@ -28,7 +28,7 @@ class Post extends Model
         return $this->hasMany('App\Models\Posts\PostComment');
     }
 
-    //sub_categoriesテーブルのリレーション
+    //sub_categoriesテーブルーのリレーション
     public function subCategories(){
         return $this->belongsToMany
         ('App\Models\Categories\SubCategory','post_sub_categories','post_id','sub_category_id');

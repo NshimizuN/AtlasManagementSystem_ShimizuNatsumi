@@ -58,13 +58,14 @@ class CalendarsController extends Controller
             $getPart = $request->getPart;
             //  dd($getPart);
             $getData = $request->getData;
+            $user = Auth::user();
             // dd($getDate);
             //$getDate=キー,$getPart=値
                 $reserve_settings = ReserveSettings::where('setting_reserve', $getData)->where('setting_part', $getPart)->delete();
                 //日付、日時を削除
-                ReserveSettings::increment('limit_users',$reserve_settings);
+                ReserveSettings::increment('limit_users');
                 //予約枠を増やす
-                // $reserve_settings->users()->delete(Auth::id());
+                $reserve_settings->users()->detach( Auth::id());
                 //該当予約のユーザーを削除
             DB::commit();
         }catch(\Exception $e){
