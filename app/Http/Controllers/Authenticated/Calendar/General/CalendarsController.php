@@ -50,23 +50,20 @@ class CalendarsController extends Controller
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
 
-    //予約の削除
+    //予約の削除（予約機能と逆の機能をつける）
     public function delete(Request $request){
         DB::beginTransaction();
         try{
-            // dd($request);
             $getPart = $request->getPart;
-            //  dd($getPart);
+            //$getPartにblade(モーダル)から取得した部を代入
             $getData = $request->getData;
-            $user = Auth::user();
-            // dd($getDate);
-            //$getDate=キー,$getPart=値
-                $reserve_settings = ReserveSettings::where('setting_reserve', $getData)->where('setting_part', $getPart)->delete();
-                //日付、日時を削除
-                ReserveSettings::increment('limit_users');
-                //予約枠を増やす
+            //$getDateにblade(モーダル)から取得した日付を代入
+                $reserve_settings = ReserveSettings::where('setting_reserve', $getData)->where('setting_part', $getPart)->first();
+                //ReserveSettingsモデル（テーブル）のsetting_reserveカラムに$getDataの値、setting_partに$getPartの値が一致しているレコードを$reserve_settingsに代入する
+               $reserve_settings->increment('limit_users');
+                //$reserve_settings（削除したい情報が代入された変数）に該当する予約枠（limit_usersカラム）を１増やす
                 $reserve_settings->users()->detach( Auth::id());
-                //該当予約のユーザーを削除
+                //$reserve_settingsと繋がっているユーザー（ReserveSettingsモデルのusersメソッド）を指定し、該当ユーザーを削除する（該当ユーザーはログインユーザーのため、Auth::id()を指定する）
             DB::commit();
         }catch(\Exception $e){
             DB::rollback();
