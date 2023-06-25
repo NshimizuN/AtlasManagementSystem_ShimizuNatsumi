@@ -72,6 +72,10 @@ li {
   font-size: 12px;
 }
 
+.reserve-count-box {
+  display: block;
+}
+
 .day_part_count {
   display: inline-block;
   color: #000000;

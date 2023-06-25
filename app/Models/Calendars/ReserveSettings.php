@@ -20,8 +20,8 @@ class ReserveSettings extends Model
         return $this->belongsToMany('App\Models\Users\User', 'reserve_setting_users', 'reserve_setting_id', 'user_id')->withPivot('reserve_setting_id', 'id');
     }
 
-    // //各予約パートのユーザー数のカウント
-    // public function reserveSettingCounts($date, $part){
-    //     return $this->where('setting_reserve', $date)->where('setting_part', $part)->get()->count();
-    // }
+    //各予約パートのユーザー数のカウント
+    public function reserveSettingCounts($date, $part){
+        return $this->where('setting_reserve', $date)->where('setting_part', $part)->get()->count();
+    }
 }

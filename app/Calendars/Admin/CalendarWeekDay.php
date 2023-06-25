@@ -37,28 +37,34 @@ class CalendarWeekDay{
     $html[] = '<div class="text-left">';
     //１部
     if($one_part){
-      // $one_part_count = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->count();
+      $one_count = $one_part->users->count();
+      //ReserveSettingsモデルusersモデルのリレーションメソッドを使用。$one_partに該当するユーザー数をカウントして$one_partへ代入。
       $html[] = '<a href="/calendar/{id}/{data}/{$one_part}">';
-      $html[] = '<p class="day_part m-0 pt-1">1部  </p>';
+      $html[] = '<span class="day_part m-0 pt-1">1部 </span>';
       $html[] = '</a>';
-      // $reserve_settings = ReserveSettings::find($id);
-      // $one_count = $reserve_settings->postComments()->count;
-      // $html[] ='<p>'.$one_count.'</p>';
-      // // $html[] = '<p class="day_part_count m-0 pt-1">'.$one_part_count.'</p>';
-      // $html[] = '<p class="d-flex m-0 p-0"><input class="w-25"" name="reserve_day['.$one_part.'][1]" type="text" form="reserveSetting" value="'.$one_part.'"></p>';
-
+      $html[] = '&emsp;';
+      $html[] = '<span class="day_part_count m-0 pt-1">'.$one_count.'</span>';
+      $html[] = '<br>';
     }
     //2部
     if($two_part){
+      $two_count = $two_part->users->count();
       $html[] = '<a href="/calendar/{id}/{data}/{$two_part}">';
-      $html[] = '<p class="day_part m-0 pt-1">2部</p>';
+      $html[] = '<span class="day_part m-0 pt-1">2部 </span>';
       $html[] = '</a>';
+      $html[] = '&emsp;';
+      $html[] = '<span class="day_part_count m-0 pt-1">'.$two_count.'</span>';
+      $html[] = '<br>';
     }
     //3部
     if($three_part){
+      $three_count = $three_part->users->count();
       $html[] = '<a href="/calendar/{id}/{data}/{$three_part}">';
-      $html[] = '<p class="day_part m-0 pt-1">3部</p>';
+      $html[] = '<span class="day_part m-0 pt-1">3部 </span>';
       $html[] = '</a>';
+      $html[] = '&emsp;';
+      $html[] = '<span class="day_part_count m-0 pt-1">'.$three_count.'</span>';
+      $html[] = '<br>';
     }
     $html[] = '</div>';
 
