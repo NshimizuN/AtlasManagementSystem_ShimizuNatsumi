@@ -39,7 +39,10 @@ class CalendarWeekDay{
     if($one_part){
       $one_count = $one_part->users->count();
       //ReserveSettingsモデルusersモデルのリレーションメソッドを使用。$one_partに該当するユーザー数をカウントして$one_partへ代入。
-      $html[] = '<a href="/calendar/{id}/{data}/{$one_part}">';
+      // $html[] = '<a href="/calendar/{id}/{data}/{part?}">';
+      // $url = route('calendar.admin.detail,['id' => $user_id]');
+      $url = route('calendar.admin.detail', ['id' => 1, 'data' => $ymd, 'part' => 'setting_part->1']);
+      $html[] = '<a href="' . $url . '">';
       $html[] = '<span class="day_part m-0 pt-1">1部 </span>';
       $html[] = '</a>';
       $html[] = '&emsp;';

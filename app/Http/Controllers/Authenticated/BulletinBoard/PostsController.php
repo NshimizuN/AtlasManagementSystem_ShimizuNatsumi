@@ -56,7 +56,7 @@ class PostsController extends Controller
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
     }
 
-    //
+    //投稿の詳細を表示する
     public function postDetail($post_id){
         $post = Post::with('user', 'postComments')->findOrFail($post_id);
         return view('authenticated.bulletinboard.post_detail', compact('post'));

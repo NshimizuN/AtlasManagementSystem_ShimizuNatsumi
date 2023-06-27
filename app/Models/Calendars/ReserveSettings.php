@@ -21,7 +21,7 @@ class ReserveSettings extends Model
     }
 
     //各予約パートのユーザー数のカウント
-    public function reserveSettingCounts($date, $part){
-        return $this->where('setting_reserve', $date)->where('setting_part', $part)->get()->count();
-    }
+    // public function reserveSettingCounts($date, $part){
+    //     return $this->where('setting_reserve', $date)->where('setting_part', $part)->get()->count();
+    // }
 }

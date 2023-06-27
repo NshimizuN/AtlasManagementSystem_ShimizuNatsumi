@@ -36,13 +36,17 @@ Route::group(['middleware' => 'auth'], function(){
                 //キャンセルする
                 Route::post('/delete/calendar', 'CalendarsController@delete')->name('deleteParts');
             });
+            //スクール枠予約、確認
             Route::namespace('Admin')->group(function(){
                 Route::get('/calendar/{user_id}/admin', 'CalendarsController@show')->name('calendar.admin.show');
+                //スクール予約の詳細
                 Route::get('/calendar/{id}/{data}/{part?}', 'CalendarsController@reserveDetail')->name('calendar.admin.detail');
+                // Route::get('/calendar/{id}/{data}/{part?}', 'CalendarsController@reserveDetail')->name('calendar.admin.detail');
                 Route::get('/setting/{user_id}/admin', 'CalendarsController@reserveSettings')->name('calendar.admin.setting');
                 Route::post('/setting/update/admin', 'CalendarsController@updateSettings')->name('calendar.admin.update');
             });
         });
+        //投稿機能
         Route::namespace('BulletinBoard')->group(function(){
             Route::get('/bulletin_board/posts/{keyword?}', 'PostsController@show')->name('post.show');
             Route::get('/bulletin_board/input', 'PostsController@postInput')->name('post.input');
@@ -51,6 +55,7 @@ Route::group(['middleware' => 'auth'], function(){
             Route::post('/bulletin_board/create', 'PostsController@postCreate')->name('post.create');
             Route::post('/create/main_category', 'PostsController@mainCategoryCreate')->name('main.category.create');
             Route::post('/create/sub_category', 'PostsController@subCategoryCreate')->name('sub.category.create');
+            //投稿詳細ページを表示
             Route::get('/bulletin_board/post/{id}', 'PostsController@postDetail')->name('post.detail');
             Route::post('/bulletin_board/edit', 'PostsController@postEdit')->name('post.edit');
 
