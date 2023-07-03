@@ -17,6 +17,7 @@
           <td class="w-25"><span>{{ $user->reserveSettingUsers->over_name}}</span><span>{{ $user->reserveSettingUsers->under_name }}</span></td>
         </tr>
         @endforeach
+        @endforeach
       </table>
     </div>
   </div>
