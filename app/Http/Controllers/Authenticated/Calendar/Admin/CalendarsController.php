@@ -21,9 +21,10 @@ class CalendarsController extends Controller
     }
 
     //スクール予約確認 各部の詳細を表示する
-    public function reserveDetail($date, $part){
-        // dd("123");
+    public function reserveDetail($user_id, $date, $part){
+        // 引数にユーザーid,日付、パートを入れる
         $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
+        $user_id = User::whereIn('reserve_setting_users', $reservePersons)->get();
         return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
     }
 

@@ -22,7 +22,7 @@ class PostComment extends Model
         return $this->belongsTo('App\Models\Posts\Post');
     }
 
-    //コメント数のカウント
+    //コメントの取得
     public function commentUser($user_id){
         return User::where('id', $user_id)->first();
     }
