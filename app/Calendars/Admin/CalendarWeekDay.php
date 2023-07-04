@@ -38,8 +38,6 @@ class CalendarWeekDay{
     //１部
     if($one_part){
       $one_count = $one_part->users->count();
-      // $one_user = $one_part->users->get();
-      // $reservePerson = $one_part->users->get();
       //$one_countに$one_partのユーザーをカウントした数を代入
       $one_url = route('calendar.admin.detail', ['reservePersons' => $one_part ,'date' => $ymd, 'part' => '1']);
       //$one_urlにルートの名前、渡したいデータのパラメータを代入。
@@ -54,8 +52,8 @@ class CalendarWeekDay{
     //2部
     if($two_part){
       $two_count = $two_part->users->count();
-      // $two_url = route('calendar.admin.detail', ['reservePersons' => $two_part  ,'date' => $ymd, 'part' => '2']);
-      $html[] = '<a href="">';
+      $two_url = route('calendar.admin.detail', ['reservePersons' => $two_part  ,'date' => $ymd, 'part' => '2']);
+      $html[] = '<a href="' . $two_url . '">';
       $html[] = '<span class="day_part m-0 pt-1">2部 </span>';
       $html[] = '</a>';
       $html[] = '&emsp;';
@@ -65,8 +63,8 @@ class CalendarWeekDay{
     //3部
     if($three_part){
       $three_count = $three_part->users->count();
-      // $three_url = route('calendar.admin.detail', ['reservePersons' => $three_part  ,'date' => $ymd, 'part' => '3']);
-      $html[] = '<a href="">';
+      $three_url = route('calendar.admin.detail', ['reservePersons' => $three_part  ,'date' => $ymd, 'part' => '3']);
+      $html[] = '<a href="' . $three_url . '">';
       $html[] = '<span class="day_part m-0 pt-1">3部 </span>';
       $html[] = '</a>';
       $html[] = '&emsp;';

@@ -24,8 +24,10 @@ class CalendarsController extends Controller
     public function reserveDetail($user_id, $date, $part){
         // 引数にユーザーid,日付、パートを入れる
         $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
-        $user_id = User::whereIn('reserve_setting_users', $reservePersons)->get();
-        return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
+        //該当予約のユーザー情報、該当の日付、partを取得
+        return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part')
+        //該当予約、日付、partのパラメータを渡す
+    );
     }
 
     //スクール枠登録 カレンダーを表示
