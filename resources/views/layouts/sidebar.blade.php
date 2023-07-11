@@ -16,19 +16,49 @@
 </head>
 
 <body class="all_content">
+
+    <header>
+        <div class="logo-box">
+            <a href="/top"><h1 class="logo"><b>Com</b><i>pass</i></h1></a>
+        </div>
+    </header>
+
   <div class="d-flex">
     <div class="sidebar">
       @section('sidebar')
-      <p><a href="{{ route('top.show') }}">トップ</a></p>
-      <p><a href="/logout">ログアウト</a></p>
-      <p><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
-      @can('read')
-      <p><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
-      <p><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
-@endcan
-      <p><a href="{{ route('post.show') }}">掲示板</a></p>
-      <p><a href="{{ route('user.show') }}">ユーザー検索</a></p>
-      @show
+      <div class="sidebar-list">
+
+        <div class="list">
+          <p class="list-menu"><a href="{{ route('top.show') }}"><i class="fas fa-home"></i>&emsp;トップ</a></p>
+        </div>
+
+        <div class="list">
+       <p class="list-menu"><a href="/logout"><i class="fas fa-external-link-alt"></i>&emsp;ログアウト</a></p>
+       </div>
+
+       <div class="list">
+       <p class="list-menu"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">	<i class="far fa-calendar-check"></i>&emsp;スクール予約</a></p>
+      </div>
+
+        @can('read')
+         <div class="list">
+           <p class="list-menu"><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}"><i class="far fa-clock"></i>&emsp;スクール予約確認</a></p>
+        </div>
+        <div class="list">
+          <p class="list-menu"><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}"><i class="fas fa-business-time"></i>&emsp;スクール枠登録</a></p>
+        </div>
+        @endcan
+
+        <div class="list">
+       <p class="list-menu"><a href="{{ route('post.show') }}"><i class="far fa-list-alt"></i>&emsp;掲示板</a></p>
+      </div>
+
+       <div class="list">
+       <p class="list-menu"><a href="{{ route('user.show') }}"><i class="fa fa-search" aria-hidden="true"></i>&emsp;ユーザー検索</a></p>
+       </div>
+
+        @show
+     </div>
     </div>
     <div class="main-container">
       @yield('content')

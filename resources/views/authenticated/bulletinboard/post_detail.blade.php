@@ -5,38 +5,44 @@
     <div class="m-3 detail_container">
       <div class="p-3">
         <div class="detail_inner_head">
-          <div>
-          </div>
 
           @if(Auth::user()->id == $post->user_id)
-          <div>
-            <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
-            <a href="{{ route('post.delete', ['id' => $post->id]) }}" onclick="return confirm('削除してよろしいでしょうか？')">削除</a>
+          <div class="edit-delete-box">
+            <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">	<i class="fas fa-edit"></i></span>
+            <span class="delete-btn" ><a href="{{ route('post.delete', ['id' => $post->id]) }}" onclick="return confirm('削除してよろしいでしょうか？')">	<i class="fas fa-trash-alt"></i></a>
           </div>
           @endif
         </div>
 
         <div class="contributor d-flex">
+          <div class="detsail-post-name">
           <p>
             <span>{{ $post->user->over_name }}</span>
             <span>{{ $post->user->under_name }}</span>
             さん
           </p>
+        </div>
           <span class="ml-5">{{ $post->created_at }}</span>
         </div>
+        <div class="detsail-post-form">
         <div class="detsail_post_title">{{ $post->post_title }}</div>
         <div class="mt-3 detsail_post">{{ $post->post }}</div>
       </div>
+      </div>
       <div class="p-3">
         <div class="comment_container">
-          <span class="">コメント</span>
           @foreach($post->postComments as $comment)
-          <div class="comment_area border-top">
+          <hr>
+          <div class="comment-view">
+            <div class="comment-icon-name">
             <p>
               <span>{{ $comment->commentUser($comment->user_id)->over_name }}</span>
-              <span>{{ $comment->commentUser($comment->user_id)->under_name }}</span>さん
+              <span>{{ $comment->commentUser($comment->user_id)->under_name }}さん</span>
             </p>
+           </div>
+           <div class="mt-3 detsail_post">
             <p>{{ $comment->comment }}</p>
+          </div>
           </div>
           @endforeach
         </div>

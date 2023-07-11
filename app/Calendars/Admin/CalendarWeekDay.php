@@ -64,7 +64,7 @@ class CalendarWeekDay{
     if($three_part){
       $three_count = $three_part->users->count();
       $three_url = route('calendar.admin.detail', ['reservePersons' => $three_part  ,'date' => $ymd, 'part' => '3']);
-      $html[] = '<a href="' . $three_url . '">';
+      $html[] = '<a href="' . $threes_url . '">';
       $html[] = '<span class="day_part m-0 pt-1">3部 </span>';
       $html[] = '</a>';
       $html[] = '&emsp;';

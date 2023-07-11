@@ -37,8 +37,8 @@
       <textarea class="w-100" form="postCreate" name="post_body">{{ old('post_body') }}</textarea>
     </div>
     <!-- 投稿ボタン -->
-    <div class="mt-3 text-right">
-      <input type="submit" class="btn btn-primary" value="投稿" form="postCreate">
+    <div class="mt-3 text-left ">
+      <input type="submit" class="post-create-btn"  value="投稿" form="postCreate">
     </div>
     <form action="{{ route('post.create') }}" method="post" id="postCreate">{{ csrf_field() }}</form>
   </div>
@@ -54,7 +54,7 @@
       @endif
         <p class="m-0">メインカテゴリー</p>
         <input type="text" class="w-100" name="main_category_name" form="mainCategoryCreate" method="post" value="{{old('main_category_name')}}">
-        <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="mainCategoryCreate">
+        <input type="submit" value="追加" class="category-create-btn" form="mainCategoryCreate">
         <form action="{{ route('main.category.create') }}" method="post" id="mainCategoryCreate">{{ csrf_field() }}</form>
       </div>
       <!-- サブカテゴリー追加 -->
@@ -73,7 +73,7 @@
       <span class="error_message">{{ $errors->first('sub_category_name') }}</span>
       @endif
        <input type="text" class="w-100" name="sub_category_name" form="subCategoryCreate" method="post" valie="{{old('sub_category_name')}}">
-       <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="subCategoryCreate">
+       <input type="submit" value="追加" class="category-create-btn" form="subCategoryCreate">
        <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryCreate">{{ csrf_field() }}</form>
      </div>
    </div>

@@ -11,10 +11,24 @@
   background: #ECF1F6;
 }
 
+
+
+
 ul,
 li {
   list-style: none;
 }
+
+/* ログイン画面 */
+
+
+.text-login {
+  text-align: center;
+  color: #51a9f2;
+  margin-top: 2.5rem;
+}
+
+
 
 /* 新規登録画面 */
 li {
@@ -23,13 +37,59 @@ li {
   font-weight: bold;
 }
 
+/* ヘッダー */
+header {
+  max-width: 100%;
+  height: 60px;
+  background: #ffffff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-box {
+  display: flex;
+  padding-left: 30px;
+  align-items: center;
+}
+
+.logo {
+  color: #000000;
+  font-family: Century;
+}
 
 /* サイドバー */
 .sidebar {
-  width: 150px;
+  width: 250px;
   height: 100vh;
   background-color: #03AAD2;
-  font-weight: bold;
+  display: block;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-list {
+  /* padding-top: 20px; */
+}
+
+.list {
+  margin-top: 30px;
+  padding-right: 20px;
+  flex-wrap: nowrap;
+  width: 180px;
+  height: 40px;
+  /* margin: 0 auto; */
+  display: flex;
+  align-items: center;
+  background-color: #9E9E9E;
+
+}
+
+.list-menu {
+  /* margin: 0 auto; */
+  /* display: flex;
+  align-items: center; */
 }
 
 .main-container {
@@ -37,13 +97,41 @@ li {
 }
 
 .sidebar p a {
+  font-weight: 700;
   color: #FFF;
+  text-align: left;
+  /* padding-top: 30px; */
+  /* justify-content: center; */
+
 }
 
 /* トップページ */
+
+.mypage {
+  font-size: 1.5rem;
+  font-family: 'Sacramento', cursive;
+}
+
 .user_status {
   border-radius: 10px;
   background: #FFF;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.mypage-prf {
+  margin-left: 20px;
+  display: flex;
+}
+
+.mypage-name,
+.mypage-kana,
+.mypage-sex,
+.mypage-barth {
+  display: block;
+  text-align: center;
+  margin-left: 50px;
 }
 
 /* スクール予約関連 */
@@ -136,7 +224,7 @@ li {
 }
 
 
-/* 掲示板 */
+/* 掲示板 メイン */
 .sub_categories {
   display: none;
 }
@@ -180,28 +268,173 @@ li {
   color: red;
 }
 
+/* 掲示板 サイドメニュー */
+
+.post-page {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.post-btn {
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 5px;
+  height: 40px;
+  width: 250px;
+  background-color: #51a9f2;
+  color: #FFF;
+  outline: none
+    /* box-shadow: 0 10px 6px rgba(0, 0, 0, 0); */
+}
+
+.post-search {
+  margin-top: 20px;
+}
+
+.post-search-box {
+  display: flex;
+  justify-content: center;
+}
+
+.post-search-title {
+  margin-bottom: 0px;
+  margin-left: 8px;
+  font-size: 1.05rem;
+  color: darkblue;
+}
+
+.posts-search-form {
+  height: 40px;
+  width: 180px;
+  border-radius: 5px;
+  background-color: #e0e4ea;
+}
+
+.posts-search-btn {
+  height: 40px;
+  width: 60px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #51a9f2;
+}
+
+.mypage-like {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.like-posts-btn {
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 5px;
+  height: 40px;
+  width: 120px;
+  background-color: #e07c9d;
+  color: #FFF;
+  font-size: 0.9rem;
+  outline: 0px none black;
+  margin-right: 5px;
+}
+
+.my-post-btn {
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 5px;
+  height: 40px;
+  width: 120px;
+  background-color: #e5b061;
+  color: #FFF;
+  font-size: 0.9rem;
+  outline: 0px none black;
+}
+
+.posts-category {
+  display: block;
+  margin-top: 20px;
+}
+
+/* カテゴリー 多層階プルダウン */
+.main_category {
+  display: block;
+  font-size: 1rem;
+  color: #000000;
+}
+
+ul.menu li {
+  float: left;
+  width: 179px;
+  height: 48px;
+  background: url("images/btn.png");
+}
+
+ul.menu li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 48px;
+  text-indent: 30px;
+  font-weight: bold;
+  color: #CFDFB5;
+  text-decoration: none;
+}
+
+ul.menu li a:hover {
+  background: url("images/btn_over.png");
+}
+
+ul.menu li ul.sub {
+  position: absolute;
+}
+
+ul.menu {
+  zoom: 1;
+}
+
+ul.menu:after {
+  height: 0;
+  visibility: hidden;
+  content: ".";
+  display: block;
+  clear: both;
+}
+
 /* 掲示板 詳細画面 */
+
 .contributor {
   font-size: 12px;
   color: #999;
   font-weight: bold;
 }
 
+.detsail-post-name {
+  margin-left: 30px;
+}
+
+.detsail-post-form {
+  margin-left: 30px;
+  margin-right: 20px;
+}
+
 .detsail_post_title {
-  font-size: 14px;
+  font-size: 1.0rem;
+  font-weight: bold;
 }
 
 .detsail_post {
-  font-size: 12px;
-  color: #9E9E9E;
+  font-size: 1rem;
+  color: #000;
 }
 
 .detail_inner_head {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 .edit-modal-open {
+  color: #e5b061;
+  font-size: 2.0rem;
   cursor: pointer;
 }
 
@@ -211,7 +444,30 @@ li {
 }
 
 .edit-modal-btn {
-  justify-content: space-between;
+  color: #e5b061;
+}
+
+.delete-btn {
+  color: #51a9f2;
+  font-size: 2.0rem;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.icon-name {
+  display: flex;
+}
+
+.comment-view {
+  margin-left: 50px;
+}
+
+.comment-icon-name {
+  font-weight: bold;
+}
+
+.detsail_post {
+  font-size: 0.9rem;
 }
 
 /* 掲示板 コメント */
@@ -219,10 +475,18 @@ li {
   background: #FFF;
 }
 
+.comment_area {
+  /* margin-left: 50px; */
+}
+
 .comment_area p,
 .comment_area input {
   font-size: 12px;
   font-weight: bold;
+}
+
+.comment-icon-name {
+  display: flex;
 }
 
 .comment_area textarea {
@@ -236,6 +500,8 @@ li {
 
 .post_status span {
   font-size: 12px;
+  /* display: flex; */
+  justify-content: center;
 }
 
 /* 掲示板　カテゴリー */
@@ -267,16 +533,43 @@ li {
   cursor: pointer;
 }
 
+/* 掲示板 投稿作成ページ */
+.post-create-btn {
+  font-weight: bold;
+  border-radius: 5px;
+  height: 40px;
+  width: 120px;
+  background-color: #51a9f2;
+  color: #FFF;
+  font-size: 0.9rem;
+  outline: 0px none black;
+}
+
+.category-create-btn {
+  font-weight: bold;
+  border-radius: 5px;
+  height: 30px;
+  width: 210px;
+  background-color: #51a9f2;
+  color: #FFF;
+  font-size: 0.9rem;
+  outline: 0px none black;
+}
+
+/* 掲示板 詳細ページ */
+
+
 /* ユーザー検索 */
 .reserve_users_area {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   width: 800px;
   margin: 10px auto;
   height: 80vh;
   overflow: scroll;
   padding: 10px;
-  background: #FFF;
+  /* background: #FFF; */
   border-radius: 5px;
 }
 
@@ -291,6 +584,10 @@ li {
 .one_person {
   width: 250px;
   height: 250px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: #000;
+  border-width: 6px;
 }
 
 .search_conditions span {
