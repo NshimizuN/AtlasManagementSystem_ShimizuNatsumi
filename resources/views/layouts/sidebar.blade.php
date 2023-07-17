@@ -16,13 +16,6 @@
 </head>
 
 <body class="all_content">
-
-    <header>
-        <div class="logo-box">
-            <a href="/top"><h1 class="logo"><b>Com</b><i>pass</i></h1></a>
-        </div>
-    </header>
-
   <div class="d-flex">
     <div class="sidebar">
       @section('sidebar')

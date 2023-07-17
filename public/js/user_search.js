@@ -1,3 +1,4 @@
+// ユーザープロフィール 選択科目のプルダウン
 $(function () {
   $('.search_conditions').click(function () {
     $('.search_conditions_inner').slideToggle();
@@ -9,14 +10,14 @@ $(function () {
 
 });
 
-// 掲示板 カテゴリーのプルダウン
+// 条件追加のプルダウン
 $(function () {
-  $("ul.sub").hide();
-  $("ul.menu li").hover(function () {
-    $("ul:not(:animated)", this).slideDown("fast")
-  },
-    function () {
-      $("ul", this).slideUp("fast");
-    })
+  $('.category_conditions').click(function () {
+    $('.conditions-box').slideToggle();
+  });
 
+  $('.conditions-title-box').click(function () {
+    $('.conditions-box').slideToggle();
+    $(this).toggleClass('open', 200);
+  });
 });

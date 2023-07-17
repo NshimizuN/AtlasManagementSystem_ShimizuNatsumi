@@ -16,22 +16,15 @@ class CalendarWeek{
     return "week-" . $this->index;
   }
 
-  // // 受付終了
-  //    function pastClassName(){
-  //    return "week-" . $this->index;
-  //  }
-
   /**
    * @return
    */
 
    function getDays(){
      $days = [];
-
     //  開始日〜終了日
      $startDay = $this->carbon->copy()->startOfWeek();
      $lastDay = $this->carbon->copy()->endOfWeek();
-
     //  作業日
      $tmpDay = $startDay->copy();
     //  月〜日曜日のループ

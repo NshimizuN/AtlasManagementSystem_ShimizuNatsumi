@@ -21,6 +21,44 @@ li {
 
 /* ログイン画面 */
 
+.login-body {
+  background-color: #e0e6e9;
+}
+
+.top-logo {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 180px;
+}
+
+
+.login-container {
+  padding: 30px 50px 30px 50px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
+}
+
+.old_year_box,
+.old_month_box,
+.old_day_box {
+  display: flex;
+}
+
+.old_year,
+.old_month,
+.old_day {
+  background-color: transparent;
+  width: 80px;
+  font-size: 1.0rem;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1.3px solid;
+  border-color: #51a9f2;
+  margin-right: 8px;
+  margin-bottom: 10px;
+}
 
 .text-login {
   text-align: center;
@@ -29,12 +67,66 @@ li {
 }
 
 
-
 /* 新規登録画面 */
+.register-body {
+  background-color: #e0e6e9;
+}
+
+.register-container {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
+}
+
+.name-register-box,
+.kananame-register-box,
+.address-register-box,
+.sex-register-box,
+.barth-register-box,
+.role-register-box,
+.select-register-box,
+.pass-register-box,
+.confirmation-register-box {
+  margin-bottom: 20px;
+}
+
+.kananame-register-box {
+  margin-bottom: 60px;
+}
+
+.name-register-box,
+.kananame-register-box,
+.address-register-box,
+.pass-register-box,
+.confirmation-register-box {
+  height: 50px;
+}
+
+.sex-register-box {
+  height: 20px;
+}
+
+.barth-register-box,
+.role-register-box {
+  height: 40px;
+}
+
+.sex-register-list,
+.barth-register-list,
+.role-register-list,
+.select-register-list {
+  display: flex;
+  justify-content: space-around;
+}
+
 li {
   color: #E2254D;
   font-size: 0.5rem;
   font-weight: bold;
+}
+
+.register-post-btn {
+  margin: 10px 0 0;
 }
 
 /* ヘッダー */
@@ -61,6 +153,7 @@ header {
 
 /* サイドバー */
 .sidebar {
+  padding-top: 20px;
   width: 250px;
   height: 100vh;
   background-color: #03AAD2;
@@ -74,7 +167,7 @@ header {
 }
 
 .list {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   padding-right: 20px;
   flex-wrap: nowrap;
   width: 180px;
@@ -82,7 +175,6 @@ header {
   /* margin: 0 auto; */
   display: flex;
   align-items: center;
-  background-color: #9E9E9E;
 
 }
 
@@ -108,8 +200,9 @@ header {
 /* トップページ */
 
 .mypage {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: 'Sacramento', cursive;
+
 }
 
 .user_status {
@@ -118,21 +211,9 @@ header {
   display: flex;
   margin-top: 10px;
   align-items: center;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
 }
 
-.mypage-prf {
-  margin-left: 20px;
-  display: flex;
-}
-
-.mypage-name,
-.mypage-kana,
-.mypage-sex,
-.mypage-barth {
-  display: block;
-  text-align: center;
-  margin-left: 50px;
-}
 
 /* スクール予約関連 */
 .day-blank {
@@ -152,7 +233,7 @@ header {
 }
 
 .calendar-td {
-  min-width: 100px;
+  min-width: 93px;
 }
 
 .day_part {
@@ -182,6 +263,8 @@ header {
 
 .adjust-table-btn {
   width: 70%;
+  /* display: flex;
+  margin-left: 60%; */
 }
 
 /* モーダル */
@@ -264,16 +347,43 @@ header {
 }
 
 .error_message {
-  font-size: 12px;
+  font-size: 10px;
   color: red;
+}
+
+/* 掲示板 メイン */
+.post-user-name {
+  color: #999;
+}
+
+a {
+  color: #000;
+}
+
+.sub-category-area {
+  border-radius: 10px;
+  color: #fff;
+  background-color: #51a9f2;
+  font-size: 0.8rem;
+  padding: 5px;
 }
 
 /* 掲示板 サイドメニュー */
 
+.other_area {
+  width: 500px;
+  padding: 40px 50px 50px 0;
+}
+
+.other_area_box {
+  display: block;
+  justify-content: center;
+}
+
 .post-page {
   margin-top: 10px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .post-btn {
@@ -281,15 +391,16 @@ header {
   font-weight: bold;
   border-radius: 5px;
   height: 40px;
-  width: 250px;
+  width: 300px;
   background-color: #51a9f2;
   color: #FFF;
-  outline: none
-    /* box-shadow: 0 10px 6px rgba(0, 0, 0, 0); */
+  opacity: 0.8;
+  border-color: #51a9f2;
+  /* box-shadow: 0 10px 6px rgba(0, 0, 0, 0); */
 }
 
 .post-search {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .post-search-box {
@@ -306,23 +417,30 @@ header {
 
 .posts-search-form {
   height: 40px;
-  width: 180px;
+  width: 220px;
   border-radius: 5px;
   background-color: #e0e4ea;
+  border-color: #e0e4ea;
 }
 
 .posts-search-btn {
   height: 40px;
-  width: 60px;
+  width: 80px;
   border-radius: 5px;
   color: #fff;
+  opacity: 0.8;
   background-color: #51a9f2;
+  border-top-color: #51a9f2;
+}
+
+.posts-search-btn:hover {
+  font-size: 1.4rem;
 }
 
 .mypage-like {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .like-posts-btn {
@@ -330,11 +448,12 @@ header {
   font-weight: bold;
   border-radius: 5px;
   height: 40px;
-  width: 120px;
+  width: 147px;
   background-color: #e07c9d;
   color: #FFF;
+  opacity: 0.8;
   font-size: 0.9rem;
-  outline: 0px none black;
+  border-color: #e07c9d;
   margin-right: 5px;
 }
 
@@ -343,30 +462,97 @@ header {
   font-weight: bold;
   border-radius: 5px;
   height: 40px;
-  width: 120px;
+  width: 147px;
   background-color: #e5b061;
   color: #FFF;
+  opacity: 0.8;
   font-size: 0.9rem;
-  outline: 0px none black;
+  border-color: #e5b061;
 }
 
 .posts-category {
   display: block;
-  margin-top: 20px;
+  margin-top: 40px;
+}
+
+.posts-category-box {
+  /* padding: 20px 10px 10px 10px; */
 }
 
 /* カテゴリー 多層階プルダウン */
-.main_category {
+
+.main_category_container {
   display: block;
+  align-items: center;
+}
+
+.main_category_box {
+  /* display: flex; */
+  height: 30px;
+  width: 250px;
+  border-bottom: 1.3px solid;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.main_category_box:after {
+  justify-content: right;
+  position: relative;
+  left: 100%;
+  content: "";
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  text-align: right;
+  width: 8px;
+  height: 8px;
+  border-top: solid 1px #000;
+  border-right: solid 1px #000;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.main_category_box.open:after {
+  color: #206ccc;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  /* display: inline-block; */
+  display: inline-block;
+  text-align: right;
+  width: 8px;
+  height: 8px;
+  left: 100%;
+}
+
+.main_category {
   font-size: 1rem;
   color: #000000;
+  font-weight: 1px;
+
+}
+
+.sub_category_box {
+  display: flex;
+  justify-content: center;
+
+}
+
+.sub_category {
+  background-color: transparent;
+  font-size: 1.0rem;
+  text-align: left;
+  height: 30px;
+  width: 200px;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1.3px solid;
+  border-color: #000;
 }
 
 ul.menu li {
-  float: left;
-  width: 179px;
-  height: 48px;
-  background: url("images/btn.png");
+  /* float: left; */
+  /* width: 179px;
+  height: 48px; */
+  /* background: url("images/btn.png"); */
 }
 
 ul.menu li a {
@@ -380,9 +566,9 @@ ul.menu li a {
   text-decoration: none;
 }
 
-ul.menu li a:hover {
+/* ul.menu li a:hover {
   background: url("images/btn_over.png");
-}
+} */
 
 ul.menu li ul.sub {
   position: absolute;
@@ -410,6 +596,9 @@ ul.menu:after {
 
 .detsail-post-name {
   margin-left: 30px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .detsail-post-form {
@@ -419,12 +608,12 @@ ul.menu:after {
 
 .detsail_post_title {
   font-size: 1.0rem;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .detsail_post {
   font-size: 1rem;
-  color: #000;
+  color: #999;
 }
 
 .detail_inner_head {
@@ -433,8 +622,11 @@ ul.menu:after {
 }
 
 .edit-modal-open {
-  color: #e5b061;
-  font-size: 2.0rem;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -448,14 +640,20 @@ ul.menu:after {
 }
 
 .delete-btn {
-  color: #51a9f2;
-  font-size: 2.0rem;
+  background-color: #E2254D;
+  color: #fff;
+  padding: 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
   cursor: pointer;
-  margin-left: 5px;
 }
 
 .icon-name {
   display: flex;
+}
+
+.comment-detail {
+  margin-top: 20px;
 }
 
 .comment-view {
@@ -498,6 +696,11 @@ ul.menu:after {
   font-size: 12px;
 }
 
+.post_bottom_area {
+  display: flex;
+  justify-content: right;
+}
+
 .post_status span {
   font-size: 12px;
   /* display: flex; */
@@ -535,61 +738,261 @@ ul.menu:after {
 
 /* 掲示板 投稿作成ページ */
 .post-create-btn {
-  font-weight: bold;
   border-radius: 5px;
   height: 40px;
-  width: 120px;
+  width: 80px;
   background-color: #51a9f2;
   color: #FFF;
   font-size: 0.9rem;
-  outline: 0px none black;
+  border-color: #51a9f2;
 }
 
 .category-create-btn {
-  font-weight: bold;
   border-radius: 5px;
   height: 30px;
   width: 210px;
   background-color: #51a9f2;
   color: #FFF;
   font-size: 0.9rem;
-  outline: 0px none black;
+  border-color: #51a9f2;
+  margin-top: 3px;
 }
 
 /* 掲示板 詳細ページ */
 
 
 /* ユーザー検索 */
-.reserve_users_area {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 800px;
-  margin: 10px auto;
-  height: 80vh;
-  overflow: scroll;
-  padding: 10px;
-  /* background: #FFF; */
-  border-radius: 5px;
+
+.search_content {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+
 }
 
-.selected_subjects {
-  display: block;
+.reserve_users_container {
+  position: absolute;
+  z-index: 20;
+  width: 70%;
+  /* padding: 10px 20px 20px 10px; */
+  margin: 10px 20px 10px 25px;
 }
+
+.reserve_users_area {
+  font-size: 13px;
+}
+
 
 .reserve_users_area span {
   font-size: 12px;
 }
 
 .one_person {
-  width: 250px;
-  height: 250px;
+  width: 23%;
+  height: 230px;
+  padding: 20px;
+  justify-content: space-around;
+  margin: 8px;
   background-color: #fff;
   border-radius: 5px;
   border: #000;
   border-width: 6px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
 }
 
+.one_person::after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 0;
+}
+
+.reserve_users_id {
+  margin-bottom: 5px;
+  margin-right: 60px;
+}
+
+
+
+/* ユーザー検索 抽出箇所*/
+
+.search_area_container {
+  position: absolute;
+  z-index: 10;
+  /* display: flex;
+  justify-content: right; */
+  left: 75%;
+  width: 25%;
+}
+
+.search_area {
+  margin-right: 20px;
+}
+
+.user-sarch-box {
+  margin-top: 40px;
+}
+
+.user-sarch-title {
+  color: darkblue;
+  font-size: 1.2rem;
+}
+
+.free_word {
+  height: 35px;
+  width: 190px;
+  background-color: #e0e5e9;
+  border-radius: 5px;
+  border-color: #e0e5e9;
+}
+
+.category-box,
+.order-box,
+.sex-box,
+.engineer-box,
+.subjects-box {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.category-title,
+.order-title,
+.sex-title,
+.engineer-title,
+.selected_title {
+  color: darkblue;
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+
+.category-form,
+.order-form,
+.engineer-form {
+  height: 35px;
+  width: 150px;
+  display: flex;
+  background-color: #e0e5e9;
+  border-radius: 5px;
+  border-color: #e0e5e9;
+}
+
+.sex-container {
+  display: flex;
+  font-size: 1.1rem;
+}
+
+/* ユーザー検索 条件の抽出 条件の追加 */
+
+
+/* .main_category_container {
+  display: block;
+  align-items: center;
+} */
+
+.conditions-title-box {
+  /* display: block; */
+  height: 30px;
+  width: 250px;
+  border-bottom: 1.3px solid;
+  margin-top: 30px;
+}
+
+.conditions-title-box:after {
+  justify-content: right;
+  position: relative;
+  /* left: 100%; */
+  content: "";
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  text-align: right;
+  width: 8px;
+  height: 8px;
+  border-top: solid 1px #000;
+  border-right: solid 1px #000;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+  margin-left: 100px;
+}
+
+.conditions-title-box.open:after {
+  color: #206ccc;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  /* display: inline-block; */
+  display: inline-block;
+  text-align: right;
+  width: 8px;
+  height: 8px;
+}
+
+.conditions-title {
+  font-size: 1rem;
+  color: #000000;
+  font-weight: 1px;
+
+}
+
+.conditions-box {
+  display: none;
+}
+
+.user-search-btnbox {
+  /* display: flex; */
+  /* justify-content: center; */
+  margin-top: 20px;
+  margin-left: 50%;
+}
+
+.user-search-btn {
+  /* justify-content: center; */
+  border-radius: 5px;
+  height: 40px;
+  width: 150px;
+  opacity: 0.8;
+  background-color: #51a9f2;
+  color: #FFF;
+  font-size: 0.9rem;
+  border-color: #51a9f2;
+}
+
+.reset-btn-box {
+  /* display: flex; */
+  /* justify-content: center; */
+  margin-top: 20px;
+}
+
+.reset-btn {
+  background-color: transparent;
+  color: #51a9f2;
+  font-size: 1.2rem;
+  border-radius: 0;
+  border: none;
+  border-color: #51a9f2;
+  /* margin-right: 8px; */
+  margin-left: 100%;
+  /* margin-bottom: 10px; */
+}
+
+/* ユーザー検索　詳細 */
+
+.user-profile-box {}
+
+.search-user-status {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* align-items: flex-start; */
+  align-items: left;
+  /* justify-content: left; */
+  /* align-items: left; */
+  border-radius: 10px;
+  background: #FFF;
+  margin-top: 10px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
+}
+
+/* ユーザー検索 詳細 科目選択 */
 .search_conditions span {
   cursor: pointer;
 }
@@ -603,8 +1006,83 @@ ul.menu:after {
   font-size: 12px;
   color: #0000FF;
   cursor: pointer;
+  align-items: left;
 }
 
 .subject_inner {
   display: none;
+}
+
+.subject-edit {}
+
+.subject-list {
+  display: flex;
+  /* justify-content: ; */
+}
+
+.subject-item {
+  margin-left: 10px;
+}
+
+.subject_edit_btn {
+  /* justify-content: center; */
+  font-size: 1.0rem;
+  color: #007bff;
+}
+
+.subject-post-btn {
+  margin-left: 10px;
+}
+
+.sub_inner {
+  display: none;
+
+}
+
+.category_conditions span {
+  cursor: pointer;
+}
+
+.category_conditions_inner {
+  display: none;
+  background: #FFF;
+}
+
+/* スクール予約確認 登録した人の確認 */
+
+.reserve-user-container {
+  margin-top: 50px;
+}
+
+.user-contens {
+  /* width: 25px; */
+  height: 30px;
+  border-bottom: solid 0.5px #e0e4ea;
+}
+
+.text-column {
+  color: #fff;
+  background-color: #007bff;
+}
+
+.reserve-list-box {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
+}
+
+.reserveーtable {
+  color: #000;
+  background-color: #fff;
+  width: 580px;
+  margin: 10px;
+}
+
+.reserveーtable tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.reserveーtable tr:nth-child(odd) {
+  background-color: #e4f4fc;
 }

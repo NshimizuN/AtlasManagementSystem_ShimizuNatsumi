@@ -8,7 +8,6 @@ use Auth;
 
 // スクール予約
 class CalendarView{
-
   private $carbon;
   // コンストラクタで受け取った日付を元にCarbonオブジェクトを作成
   function __construct($date){
@@ -32,8 +31,8 @@ class CalendarView{
     $html[] = '<th>水</th>';
     $html[] = '<th>木</th>';
     $html[] = '<th>金</th>';
-    $html[] = '<th>土</th>';
-    $html[] = '<th>日</th>';
+    $html[] = '<th style="color:blue;">土</th>';
+    $html[] = '<th style="color:red;">日</th>';
     $html[] = '</tr>';
     $html[] = '</thead>';
 
@@ -99,7 +98,7 @@ class CalendarView{
           // ④過去・当日なら
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
             // ④「受付終了」を表示する
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:14px">受付終了</p>';
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">受付終了</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
             // ④未来なら
           }else{

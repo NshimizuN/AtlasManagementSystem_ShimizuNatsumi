@@ -2,13 +2,12 @@
 
 <!-- スクール予約 -->
 @section('content')
-<div class="vh-100 pt-5" style="background:#ECF1F6;">
-  <div class="border w-75 m-auto pt-5 pb-5" style="border-radius:5px; background:#FFF;">
-    <div class="w-75 m-auto border" style="border-radius:5px;">
-
-    <!-- CalendarViewの各関数を利用して、タイトルを出力 -->
-      <p class="text-center">{{ $calendar->getTitle() }}</p>
+<div class="vh-100 pt-4" style="background:#ECF1F6; ">
+  <div class="border w-75 m-auto pt-3 pb-3" style="border-radius:5px; background:#FFF; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
+      <!-- CalendarViewの各関数を利用して、タイトルを出力 -->
+      <p class="text-center"style="font-size:1.5rem;" >{{ $calendar->getTitle() }}</p>
       <div class="">
+    <div class="w-75 m-auto border" style="border-radius:5px;">
          <!-- CalendarViewの各関数を利用して、カレンダーを出力 -->
         {!! $calendar->render() !!}
       </div>

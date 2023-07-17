@@ -67,3 +67,74 @@ $(function () {
   });
 
 });
+
+$('post-btn').hover(
+  function () {
+    $(this).css('color', 'red');
+  },
+  function () {
+    $(this).css('color', '');
+  }
+);
+
+// 投稿 ホバーして色を変える
+$(function () {
+  $('.post-btn').hover(function () {
+    $(this).css('opacity', '1.0');
+    $(this).css('transition', '0.3s');
+  },
+    function () {
+      $(this).css('opacity', '');
+      $(this).css('transition', '0.3s');
+    });
+});
+
+// いいねした投稿 ホバーして色を変える
+$(function () {
+  $('.like-posts-btn').hover(function () {
+    $(this).css('opacity', '1.0');
+    $(this).css('transition', '0.3s');
+  },
+    function () {
+      $(this).css('opacity', '');
+      $(this).css('transition', '0.3s');
+    });
+});
+
+// 自分の投稿 ホバーして色を変える
+$(function () {
+  $('.my-post-btn').hover(function () {
+    $(this).css('opacity', '1.0');
+    $(this).css('transition', '0.3s');
+  },
+    function () {
+      $(this).css('opacity', '');
+      $(this).css('transition', '0.3s');
+    });
+});
+
+// 検索ボタン ホバーして色を変える
+$(function () {
+  $('.posts-search-btn').hover(function () {
+    $(this).css('opacity', '1.0');
+    // $(this).css('transform', 'scale(1.2)');
+    $(this).css('transition', '0.3s');
+  },
+    function () {
+      $(this).css('opacity', '');
+      // $(this).css('transform', '');
+      $(this).css('transition', '0.3s');
+    });
+});
+
+// 掲示板 カテゴリーのプルダウン
+$(function () {
+  $('.category_conditions').click(function () {
+    $('.category_conditions_inner').slideToggle();
+  });
+
+  $('.main_category_box').click(function () {
+    $('.sub_inner').slideToggle();
+    $(this).toggleClass('open', 200);
+  });
+});

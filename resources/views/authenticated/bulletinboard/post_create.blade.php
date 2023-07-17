@@ -37,7 +37,7 @@
       <textarea class="w-100" form="postCreate" name="post_body">{{ old('post_body') }}</textarea>
     </div>
     <!-- 投稿ボタン -->
-    <div class="mt-3 text-left ">
+    <div class="mt-3 text-right ">
       <input type="submit" class="post-create-btn"  value="投稿" form="postCreate">
     </div>
     <form action="{{ route('post.create') }}" method="post" id="postCreate">{{ csrf_field() }}</form>
@@ -59,19 +59,19 @@
       </div>
       <!-- サブカテゴリー追加 -->
       <div class="">
-        <p class="m-0">サブカテゴリー</p>
-      @if($errors->first('main_category_id'))
+              @if($errors->first('main_category_id'))
       <span class="error_message">{{ $errors->first('main_category_id') }}</span>
+      @endif<br>
+            @if($errors->first('sub_category_name'))
+      <span class="error_message">{{ $errors->first('sub_category_name') }}</span>
       @endif
+        <p class="m-0">サブカテゴリー</p>
         <select class="w-100" form="subCategoryCreate" name="main_category_id">
         <option selected disabled>----</option>
         @foreach($main_categories as $main_category)
         <option label="{{ $main_category->main_category }}" value="{{$main_category->id}}"></option>
         @endforeach
        </select>
-      @if($errors->first('sub_category_name'))
-      <span class="error_message">{{ $errors->first('sub_category_name') }}</span>
-      @endif
        <input type="text" class="w-100" name="sub_category_name" form="subCategoryCreate" method="post" valie="{{old('sub_category_name')}}">
        <input type="submit" value="追加" class="category-create-btn" form="subCategoryCreate">
        <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryCreate">{{ csrf_field() }}</form>

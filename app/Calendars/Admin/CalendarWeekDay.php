@@ -16,7 +16,7 @@ class CalendarWeekDay{
   }
 
   function render(){
-    return '<p class="day">' . $this->carbon->format("j") . '日</p>';
+    return '<p class="day d-flex m-0 p-0" style=" justify-content: center; font-size:0.9rem">' . $this->carbon->format("j") . '日</p>';
   }
 
   function everyDay(){
@@ -34,9 +34,10 @@ class CalendarWeekDay{
     $three_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '3')->first();
 
     //各部の人数、リンクの表示
-    $html[] = '<div class="text-left">';
+    $html[] = '<div class="">';
     //１部
     if($one_part){
+      $html[] = '<div style="display:flex; justify-content: space-around;">';
       $one_count = $one_part->users->count();
       //$one_countに$one_partのユーザーをカウントした数を代入
       $one_url = route('calendar.admin.detail', ['reservePersons' => $one_part ,'date' => $ymd, 'part' => '1']);
@@ -45,31 +46,30 @@ class CalendarWeekDay{
       $html[] = '<a href="' . $one_url . '">';
       $html[] = '<span class="day_part m-0 pt-1">1部 </span>';
       $html[] = '</a>';
-      $html[] = '&emsp;';
       $html[] = '<span class="day_part_count m-0 pt-1">'.$one_count.'</span>';
-      $html[] = '<br>';
+      $html[] = '</div>';
     }
     //2部
     if($two_part){
+      $html[] = '<div style="display:flex; justify-content: space-around;">';
       $two_count = $two_part->users->count();
       $two_url = route('calendar.admin.detail', ['reservePersons' => $two_part  ,'date' => $ymd, 'part' => '2']);
       $html[] = '<a href="' . $two_url . '">';
       $html[] = '<span class="day_part m-0 pt-1">2部 </span>';
       $html[] = '</a>';
-      $html[] = '&emsp;';
       $html[] = '<span class="day_part_count m-0 pt-1">'.$two_count.'</span>';
-      $html[] = '<br>';
+      $html[] = '</div>';
     }
     //3部
     if($three_part){
+            $html[] = '<div style="display:flex; justify-content: space-around;">';
       $three_count = $three_part->users->count();
       $three_url = route('calendar.admin.detail', ['reservePersons' => $three_part  ,'date' => $ymd, 'part' => '3']);
-      $html[] = '<a href="' . $threes_url . '">';
+      $html[] = '<a href="' . $three_url . '">';
       $html[] = '<span class="day_part m-0 pt-1">3部 </span>';
       $html[] = '</a>';
-      $html[] = '&emsp;';
       $html[] = '<span class="day_part_count m-0 pt-1">'.$three_count.'</span>';
-      $html[] = '<br>';
+      $html[] = '</div>';
     }
     $html[] = '</div>';
 
