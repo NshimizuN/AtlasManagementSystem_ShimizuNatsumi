@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 
 @section('content')
-<div class="board_area w-100 border m-auto d-flex">
+<div class="board_area w-100  m-auto d-flex">
   <div class="post_view w-100 mt-5">
 
     <!-- 投稿リスト -->
@@ -35,7 +35,7 @@
 
   <!-- 右のエリア -->
   <!-- 投稿作成 -->
-  <div class="other_area border">
+  <div class="other_area">
     <div class="other_area_box ">
       <!-- 投稿ページへ推移 -->
       <div class="post-page">
@@ -65,27 +65,26 @@
         <p class="post-search-title" style="color:#000000;">カテゴリー検索</p>
 
         <div class="posts-category-box">
-          <ul class="menu">
-
+          <dl class="menu">
            @foreach($categories as $category)
            <div class="main_category_container">
-             <div class="main_category_box">
-               <li><span class="main_category">{{$category->main_category}}</span>
-             </div>
-            </div>
-              @foreach($category->subCategories as $sub_category)
-              <ul class="sub_inner">
-
-               <div class="sub_category_box">
-                 <li><input type="submit" class="sub_category" name="category_word" value="{{ $sub_category->sub_category }}" form="postSearchRequest"></li>
+             <dt>
+               <div class="main_category_box">
+                <span class="main_category">{{$category->main_category}}</span>
               </div>
+             </dt>
+            <!-- </div> -->
 
-             </ul>
+              @foreach($category->subCategories as $sub_category)
+                         <dd>
+              <div class="sub_category_box">
+                 <input type="submit" class="sub_category" name="category_word" value="{{ $sub_category->sub_category }}" form="postSearchRequest">
+                            </dd>
+              <!-- </div> -->
              @endforeach
 
-          </li>
            @endforeach
-         </ul>
+          </dl>
       </div>
 
 

@@ -127,14 +127,33 @@ $(function () {
     });
 });
 
-// 掲示板 カテゴリーのプルダウン
-$(function () {
-  $('.category_conditions').click(function () {
-    $('.category_conditions_inner').slideToggle();
-  });
 
-  $('.main_category_box').click(function () {
-    $('.sub_inner').slideToggle();
-    $(this).toggleClass('open', 200);
-  });
+// 掲示板 カテゴリーのプルダウン
+
+$(function () {
+  $('.toggle dt').on('click', function () {
+    $(this).next('dd').slideToggle();
+  })
 });
+
+// $(function () {
+//   $('.sub_category').css("display", "none");
+//   $('.main_category').on('click', function () {
+//     $(this).next().slideToggle();
+//   })
+// });
+
+//前回まで
+// $(function () {
+//   $('.main_category').click(function () {
+//     // var category_id = $(this).attr('category_id');
+//     $('.sub_inner').slideToggle();
+//     $(this).toggleClass('open', 200);
+//   });
+// });
+
+// $(function () {
+//   $('.main_categories').click(function () {
+//     var category_id = $(this).attr('category_id');
+//     $('.category_num' + category_id).slideToggle();
+//   });

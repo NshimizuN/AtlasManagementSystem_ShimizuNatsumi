@@ -1034,10 +1034,10 @@ ul.menu:after {
   margin-left: 10px;
 }
 
-.sub_inner {
+/* .sub_inner {
   display: none;
 
-}
+} */
 
 .category_conditions span {
   cursor: pointer;
@@ -1046,6 +1046,14 @@ ul.menu:after {
 .category_conditions_inner {
   display: none;
   background: #FFF;
+}
+
+.toggle dt {
+  cursor: pointer;
+}
+
+.toggle dd {
+  display: none;
 }
 
 /* スクール予約確認 登録した人の確認 */
