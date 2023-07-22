@@ -131,8 +131,9 @@ $(function () {
 // 掲示板 カテゴリーのプルダウン
 
 $(function () {
-  $('.toggle dt').on('click', function () {
+  $('dt').on('click', function () {
     $(this).next('dd').slideToggle();
+    $(this).toggleClass('open', 200);
   })
 });
 

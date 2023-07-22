@@ -12,22 +12,31 @@
       <!-- 投稿タイトル -->
       <b><p class="post-title"><a href="{{ route('post.detail', ['id' => $post->id]) }}" style="color:#000000;">{{ $post->post_title }}</a></p></b>
 
-      <div class="post_bottom_area d-flex">
+      <div class="post_bottom_area">
+         <!-- <div class="d-flex post_status"> -->
+         <!-- サブカテゴリー -->
+          <div class="post-subcategory-box">
+              @foreach($post->subCategories as $sub_category)
+                 <span class="post-subcategory">{{ $sub_category->sub_category }}</span>
+             @endforeach
+          </div>
 
-        <div class="d-flex post_status">
-          <!-- コメント -->
-          <div class="mr-5">
-            <i class="fa fa-comment"></i><span class="">{{$post->postComments->count()}}</span>
+         <div class="comment-like-box">
+                    <!-- コメント -->
+            <div class="mr-3">
+              <i class="fa fa-comment"></i><span class="">{{$post->postComments->count()}}</span>
+           </div>
+            <!-- いいね -->
+           <div>
+             @if(Auth::user()->is_Like($post->id))
+             <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{$like->likeCounts($post->id)}}</span></p>
+             @else
+             <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{$like->likeCounts($post->id)}}</span></p>
+             @endif
           </div>
-          <!-- いいね -->
-          <div>
-            @if(Auth::user()->is_Like($post->id))
-            <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{$like->likeCounts($post->id)}}</span></p>
-            @else
-            <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{$like->likeCounts($post->id)}}</span></p>
-            @endif
-          </div>
-        </div>
+       </div>
+        <!-- </div> -->
+
       </div>
     </div>
     @endforeach
@@ -75,14 +84,13 @@
              </dt>
             <!-- </div> -->
 
+            <dd>
               @foreach($category->subCategories as $sub_category)
-                         <dd>
               <div class="sub_category_box">
                  <input type="submit" class="sub_category" name="category_word" value="{{ $sub_category->sub_category }}" form="postSearchRequest">
-                            </dd>
-              <!-- </div> -->
+              </div>
              @endforeach
-
+            </dd>
            @endforeach
           </dl>
       </div>

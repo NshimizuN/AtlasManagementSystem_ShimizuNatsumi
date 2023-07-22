@@ -78,6 +78,8 @@ li {
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .3);
 }
 
+.error_message-box {}
+
 .name-register-box,
 .kananame-register-box,
 .address-register-box,
@@ -88,6 +90,7 @@ li {
 .pass-register-box,
 .confirmation-register-box {
   margin-bottom: 20px;
+  display: block;
 }
 
 .kananame-register-box {
@@ -100,6 +103,8 @@ li {
 .pass-register-box,
 .confirmation-register-box {
   height: 50px;
+  /* display: flex;
+  flex-wrap: wrap; */
 }
 
 .sex-register-box {
@@ -333,7 +338,28 @@ header {
 }
 
 .post_bottom_area {
-  justify-content: space-between;
+  display: flex;
+  /* justify-content: space-around; */
+  /* width: 500px; */
+}
+
+.post-subcategory-box {
+  display: flex;
+  /* margin-right: 100px; */
+}
+
+.post-subcategory {
+  display: flex;
+  /* width: 30px; */
+  color: #fff;
+  background-color: #51a9f2;
+  font-size: 0.9rem;
+  padding: 2px 5px 2px 5px;
+  border-radius: 7px;
+}
+
+.comment-like-box {
+  display: flex;
 }
 
 .like_btn,
@@ -532,11 +558,13 @@ a {
 
 .sub_category_box {
   display: flex;
+  flex-flow: column;
   justify-content: center;
 
 }
 
 .sub_category {
+  display: block;
   background-color: transparent;
   font-size: 1.0rem;
   text-align: left;
@@ -584,6 +612,14 @@ ul.menu:after {
   content: ".";
   display: block;
   clear: both;
+}
+
+dt {
+  cursor: pointer;
+}
+
+dd {
+  display: none;
 }
 
 /* 掲示板 詳細画面 */
@@ -698,7 +734,7 @@ ul.menu:after {
 
 .post_bottom_area {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
 }
 
 .post_status span {
@@ -790,7 +826,8 @@ ul.menu:after {
 .one_person {
   width: 23%;
   height: 230px;
-  padding: 20px;
+  padding: 29px;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin: 8px;
   background-color: #fff;
@@ -981,11 +1018,7 @@ ul.menu:after {
 .search-user-status {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* align-items: flex-start; */
   align-items: left;
-  /* justify-content: left; */
-  /* align-items: left; */
   border-radius: 10px;
   background: #FFF;
   margin-top: 10px;
@@ -1009,6 +1042,7 @@ ul.menu:after {
   align-items: left;
 }
 
+
 .subject_inner {
   display: none;
 }
@@ -1028,7 +1062,9 @@ ul.menu:after {
   /* justify-content: center; */
   font-size: 1.0rem;
   color: #007bff;
+  margin-left: 10px;
 }
+
 
 .subject-post-btn {
   margin-left: 10px;
@@ -1048,13 +1084,6 @@ ul.menu:after {
   background: #FFF;
 }
 
-.toggle dt {
-  cursor: pointer;
-}
-
-.toggle dd {
-  display: none;
-}
 
 /* スクール予約確認 登録した人の確認 */
 

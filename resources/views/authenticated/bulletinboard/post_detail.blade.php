@@ -9,6 +9,9 @@
       <!-- 編集確認画面 -->
       <div class="p-3">
        <div class="post_bottom_area d-flex">
+              @foreach($post->subCategories as $sub_category)
+                 <span class="post-subcategory">{{ $sub_category->sub_category }}</span>
+             @endforeach
          <div class="detail_inner_head">
           @if(Auth::user()->id == $post->user_id)
           <div class="edit-delete-box">
@@ -18,6 +21,7 @@
           @endif
         </div>
       </div>
+
         <div class="detsail-post-name">
          <div class="contributor d-flex">
            <p>

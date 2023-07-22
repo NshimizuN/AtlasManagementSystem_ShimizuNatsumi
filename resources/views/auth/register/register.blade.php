@@ -24,9 +24,11 @@
 
         <!-- 姓名 -->
         <div class="name-register-box">
+          <div class="error_message-box">
           @if($errors->first('over_name'))
                <span class="error_message">{{ $errors->first('over_name') }}</span>
                @endif
+          </div>
           <br>
           @if($errors->first('under_name'))
             <span class="error_message">{{ $errors->first('under_name') }}</span>
