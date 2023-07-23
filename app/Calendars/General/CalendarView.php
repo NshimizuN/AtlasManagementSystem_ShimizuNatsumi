@@ -61,7 +61,7 @@ class CalendarView{
           $html[] = '<td class="past-day border '.$day->pastClassName().'">';
         }else{
           // 予約フォームを表示する
-          $html[] = '<td class="calendar-td '.$day->getClassName().'">';
+          $html[] = '<td class="calendar-td  border '.$day->getClassName().'">';
         }
         $html[] = $day->render();
         // $html[] = $day->dayPartCounts($day->everyDay());
@@ -85,7 +85,7 @@ class CalendarView{
           }
           // ③過去現在なら
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px  value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" >'. $reservePart .'</p>';
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'" >'. $reservePart .'</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
             // ③未来なら
           }else{

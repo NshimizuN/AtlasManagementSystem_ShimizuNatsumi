@@ -64,7 +64,7 @@
          <button type=“button” name="like_posts" class="like-posts-btn" value="いいねした投稿" form="postSearchRequest">いいねした投稿</button>
        </div>
        <!-- 自分の投稿 -->
-        <div class="like-posts">
+        <div class="my-posts">
          <button type=“button” name="my_posts" class="my-post-btn" value="自分の投稿" form="postSearchRequest">自分の投稿</button>
        </div>
       </div>
@@ -76,13 +76,11 @@
         <div class="posts-category-box">
           <dl class="menu">
            @foreach($categories as $category)
-           <div class="main_category_container">
-             <dt>
+             <dt class="main_category_container">
                <div class="main_category_box">
                 <span class="main_category">{{$category->main_category}}</span>
               </div>
              </dt>
-            <!-- </div> -->
 
             <dd>
               @foreach($category->subCategories as $sub_category)
@@ -94,14 +92,6 @@
            @endforeach
           </dl>
       </div>
-
-
-         <!-- @foreach($categories as $category)
-         <p class="m-0">{{$category->main_category}}</p>
-        @foreach($category->subCategories as $sub_category)
-        <input type="submit" name="category_word" class="category_btn" value="{{ $sub_category->sub_category }}" form="postSearchRequest">
-        @endforeach
-        @endforeach -->
       </div>
      </div>
     </div>

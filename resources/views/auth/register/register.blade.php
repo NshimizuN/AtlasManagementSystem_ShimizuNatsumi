@@ -25,14 +25,13 @@
         <!-- 姓名 -->
         <div class="name-register-box">
           <div class="error_message-box">
-          @if($errors->first('over_name'))
+           @if($errors->first('over_name'))
                <span class="error_message">{{ $errors->first('over_name') }}</span>
                @endif
-          </div>
-          <br>
-          @if($errors->first('under_name'))
+           @if($errors->first('under_name'))
             <span class="error_message">{{ $errors->first('under_name') }}</span>
              @endif
+          </div>
           <div class="d-flex mt-3" style="justify-content:space-between">
            <!-- 姓 -->
             <div class="" style="width:140px">
@@ -57,7 +56,6 @@
             @if($errors->first('over_name_kana'))
                <span class="error_message">{{ $errors->first('over_name_kana') }}</span>
                @endif
-               <br>
             @if($errors->first('under_name_kana'))
                <span class="error_message">{{ $errors->first('under_name_kana') }}</span>
                @endif

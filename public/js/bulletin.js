@@ -129,32 +129,9 @@ $(function () {
 
 
 // 掲示板 カテゴリーのプルダウン
-
 $(function () {
-  $('dt').on('click', function () {
+  $('.main_category_container').on('click', function () {
     $(this).next('dd').slideToggle();
     $(this).toggleClass('open', 200);
   })
 });
-
-// $(function () {
-//   $('.sub_category').css("display", "none");
-//   $('.main_category').on('click', function () {
-//     $(this).next().slideToggle();
-//   })
-// });
-
-//前回まで
-// $(function () {
-//   $('.main_category').click(function () {
-//     // var category_id = $(this).attr('category_id');
-//     $('.sub_inner').slideToggle();
-//     $(this).toggleClass('open', 200);
-//   });
-// });
-
-// $(function () {
-//   $('.main_categories').click(function () {
-//     var category_id = $(this).attr('category_id');
-//     $('.category_num' + category_id).slideToggle();
-//   });

@@ -63,7 +63,7 @@ class CalendarWeekDay{
      }
 
      $html = [];
-     $html[] = '<select name="getPart[]" class="border-primary" style="width:70px; border-radius:5px;" form="reserveParts">';
+     $html[] = '<select name="getPart[]" class="border-primary" style="width:60px; border-radius:5px;" form="reserveParts">';
      $html[] = '<option value="" selected></option>';
 
     //  １部の予約が埋まったら
