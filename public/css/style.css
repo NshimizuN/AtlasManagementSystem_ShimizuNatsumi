@@ -251,7 +251,8 @@ header {
 }
 
 .adjust-table-btn {
-  width: 70%;
+  width: 95%;
+  margin-top: 10px;
 }
 
 /* モーダル */
@@ -495,15 +496,18 @@ a {
   margin-top: 10px;
   margin-left: 40px;
   /* display: block; */
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: left;
 }
 
 .main_category_container:after {
   align-items: center;
   justify-content: left;
   position: relative;
-  left: 100%;
+  left: 95%;
+  bottom: 10px;
+  /* right: 20px; */
   content: "";
   transition: all 0.2s ease-in-out;
   /* display: inline-block; */
@@ -511,8 +515,8 @@ a {
   /* text-align: right; */
   width: 8px;
   height: 8px;
-  border-top: solid 1px #000;
-  border-right: solid 1px #000;
+  border-top: solid 2px #000;
+  border-right: solid 2px #000;
   -webkit-transform: rotate(135deg);
   transform: rotate(135deg);
 }
@@ -528,7 +532,7 @@ a {
   /* text-align: right; */
   width: 8px;
   height: 8px;
-  left: 100%;
+  left: 95%;
 }
 
 .main_category {
