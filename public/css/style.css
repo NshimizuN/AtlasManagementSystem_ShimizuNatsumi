@@ -494,18 +494,21 @@ a {
   border-bottom: 1.3px solid;
   margin-top: 10px;
   margin-left: 40px;
-  display: block;
+  /* display: block; */
+  display: flex;
   align-items: center;
 }
 
 .main_category_container:after {
-  justify-content: right;
+  align-items: center;
+  justify-content: left;
   position: relative;
   left: 100%;
   content: "";
   transition: all 0.2s ease-in-out;
-  display: inline-block;
-  text-align: right;
+  /* display: inline-block; */
+  display: flex;
+  /* text-align: right; */
   width: 8px;
   height: 8px;
   border-top: solid 1px #000;
@@ -515,11 +518,14 @@ a {
 }
 
 .main_category_container.open:after {
+  align-items: center;
+  justify-content: left;
   color: #206ccc;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  display: inline-block;
-  text-align: right;
+  /* display: inline-block; */
+  display: flex;
+  /* text-align: right; */
   width: 8px;
   height: 8px;
   left: 100%;
@@ -910,6 +916,26 @@ dd {
   border-color: #e0e5e9;
 }
 
+.subjects-container {
+  display: flex;
+  width: 300px;
+}
+
+.subjects-list {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: px;
+}
+
+.subject {
+  display: flex;
+}
+
+.subject-name {
+  display: flex;
+  margin-right: 5px;
+}
+
 .sex-container {
   display: flex;
   font-size: 1.1rem;
@@ -919,9 +945,10 @@ dd {
 .conditions-title-box {
   height: 30px;
   width: 250px;
-  border-bottom: 1.3px solid;
+  /* border-bottom: 1.3px solid; */
   margin-top: 30px;
 }
+
 
 .conditions-title-box:after {
   justify-content: right;

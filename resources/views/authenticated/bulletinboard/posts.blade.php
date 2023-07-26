@@ -13,7 +13,6 @@
       <b><p class="post-title"><a href="{{ route('post.detail', ['id' => $post->id]) }}" style="color:#000000;">{{ $post->post_title }}</a></p></b>
 
       <div class="post_bottom_area">
-         <!-- <div class="d-flex post_status"> -->
          <!-- サブカテゴリー -->
           <div class="post-subcategory-box">
               @foreach($post->subCategories as $sub_category)

@@ -114,9 +114,11 @@
           <div class="subjects-box">
             <label class="selected_title">選択科目</label>
             <div class="subjects-container">
-            @foreach($subjects as $subject)
-            <div><input type="checkbox" id="subject_{{ $subject->id }}" name="subject[]" value="{{ $subject->id }}" form="userSearchRequest">
-            <label for="subject_{{ $subject->id }}">{{ $subject->subject }}</label></div>
+             @foreach($subjects as $subject)
+             <div class="subjects-list">
+              <label class="subject-name" for="subject_{{ $subject->id }}">{{ $subject->subject }}</label>
+               <input class="subject" type="checkbox" id="subject_{{ $subject->id }}" name="subject[]" value="{{ $subject->id }}" form="userSearchRequest">
+           </div>
             @endforeach
         </div>
           </div>
