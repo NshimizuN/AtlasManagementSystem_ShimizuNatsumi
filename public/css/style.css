@@ -949,7 +949,7 @@ dd {
 .conditions-title-box {
   height: 30px;
   width: 250px;
-  /* border-bottom: 1.3px solid; */
+  border-bottom: 1.3px solid;
   margin-top: 30px;
 }
 
